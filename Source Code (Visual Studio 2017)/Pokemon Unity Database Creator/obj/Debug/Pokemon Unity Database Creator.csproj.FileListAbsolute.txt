@@ -1,0 +1,15 @@
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe.config
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csprojResolveAssemblyReference.cache
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.Properties.Resources.resources
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.GenerateResource.cache
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CoreCompileInputs.cache
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.exe
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.PokemonUnityDatabaseCreator.resources
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
