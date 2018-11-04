@@ -13,3 +13,4 @@ C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Databas
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.LoadingScreen.resources

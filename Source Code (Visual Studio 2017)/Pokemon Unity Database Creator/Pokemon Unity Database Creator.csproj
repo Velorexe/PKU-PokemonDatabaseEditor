@@ -51,8 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseExporter.cs" />
+    <Compile Include="DatabaseImporter.cs" />
     <Compile Include="GifImage.cs" />
     <Compile Include="LevelMove.cs" />
+    <Compile Include="LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingScreen.Designer.cs">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="PokemonData.cs" />
     <Compile Include="PokemonUnityDatabaseCreator.cs">
       <SubType>Form</SubType>
@@ -62,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LoadingScreen.resx">
+      <DependentUpon>LoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PokemonUnityDatabaseCreator.resx">
       <DependentUpon>PokemonUnityDatabaseCreator.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,7 +103,6 @@
     <None Include="Resources\Unknown.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Experience.bmp" />
     <Content Include="Resources\Experience.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
