@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
 using System.IO;
-using System.Drawing.Imaging;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -44,8 +36,22 @@ namespace Pokemon_Unity_Database_Creator
 
         string[] DatabaseSplitter(string Database)
         {
+            var blockComments = @"/\*(.*?)\*/";
+            var lineComments = @"//(.*?)\r?\n";
+            var strings = @"""((\\[^\n]|[^""\n])*)""";
+            var verbatimStrings = @"@(""[^""]*"")+";
+
+            Database = Regex.Replace(Database,
+                blockComments + "|" + lineComments + "|" + strings + "|" + verbatimStrings,
+                me =>
+                {
+                    if (me.Value.StartsWith("/*") || me.Value.StartsWith("//"))
+                        return me.Value.StartsWith("//") ? Environment.NewLine : "";
+                        return me.Value;
+                },
+            RegexOptions.Singleline);
             string[] Result;
-            Result = Database.Split(new [] { "new PokemonData" }, StringSplitOptions.None);
+            Result = Database.Split(new[] { "new PokemonData" }, StringSplitOptions.None);
             for (int i = 0; i < Result.Length; i++)
             {
                 string CheckChar = Result[i];
@@ -57,7 +63,7 @@ namespace Pokemon_Unity_Database_Creator
                 }
             }
 
-            if(Result.Length == 1 && PokemonAmount == 0)
+            if (Result.Length == 1 && PokemonAmount == 0)
             {
                 MessageBox.Show("The database you tried to import seems empty. Did you load the right database?");
             }
@@ -68,20 +74,23 @@ namespace Pokemon_Unity_Database_Creator
 
         List<PokemonData> DatabaseCompiler(string[] Database)
         {
-            if(PokemonAmount == 0)
+            if (PokemonAmount == 0)
             {
                 return new List<PokemonData>();
             }
             List<PokemonData> PokemonDatabase = new List<PokemonData>();
 
-            foreach(string PokemonData in Database)
+            foreach (string PokemonData in Database)
             {
                 PokemonData tempPokemon = new PokemonData();
+
                 string Pokemon = PokemonData.TrimStart('(');
+                Pokemon = Pokemon.Replace("\r", "");
+
                 string[] pokemonArray = Pokemon.Split(',');
 
                 int i = 0;
-                foreach(string stat in pokemonArray)
+                foreach (string stat in pokemonArray)
                 {
                     pokemonArray[i] = stat.Replace("\n", "");
                     i++;
@@ -91,56 +100,57 @@ namespace Pokemon_Unity_Database_Creator
 
                 tempPokemon.Name = QuoteRemove(pokemonArray[1]);
 
-                tempPokemon.Type1 = ToTitleCase(TypeStripper(pokemonArray[2]));
-                tempPokemon.Type2 = ToTitleCase(TypeStripper(pokemonArray[3]));
+                tempPokemon.Species = QuoteRemove(pokemonArray[2]);
 
-                tempPokemon.Ability1 = AbilityCheck(QuoteRemove(pokemonArray[4]));
-                tempPokemon.Ability2 = AbilityCheck(QuoteRemove(pokemonArray[5]));
-                tempPokemon.HiddenAbility = AbilityCheck(QuoteRemove(pokemonArray[6]));
+                tempPokemon.Type1 = ToTitleCase(TypeStripper(pokemonArray[3]));
+                tempPokemon.Type2 = ToTitleCase(TypeStripper(pokemonArray[4]));
 
-                tempPokemon.MaleRatio = RemoveLetter(pokemonArray[7], "f");
+                tempPokemon.Ability1 = AbilityCheck(QuoteRemove(pokemonArray[5]));
+                tempPokemon.Ability2 = AbilityCheck(QuoteRemove(pokemonArray[6]));
+                tempPokemon.HiddenAbility = AbilityCheck(QuoteRemove(pokemonArray[7]));
 
-                tempPokemon.CatchRate = RemoveLetter(pokemonArray[8], "f");
+                tempPokemon.MaleRatio = RemoveLetter(pokemonArray[8], "f");
 
-                tempPokemon.EggGroup1 = ToTitleCase(TypeStripper(pokemonArray[9]));
-                tempPokemon.EggGroup2 = ToTitleCase(TypeStripper(pokemonArray[10]));
+                tempPokemon.CatchRate = RemoveLetter(pokemonArray[9], "f");
 
-                tempPokemon.HatchTime = Convert.ToInt32(pokemonArray[11]);
+                tempPokemon.EggGroup1 = ToTitleCase(TypeStripper(pokemonArray[10]));
+                tempPokemon.EggGroup2 = ToTitleCase(TypeStripper(pokemonArray[11]));
 
-                tempPokemon.Height = RemoveLetter(pokemonArray[12], "f");
+                tempPokemon.HatchTime = Convert.ToInt32(pokemonArray[12]);
 
-                tempPokemon.Weight = RemoveLetter(pokemonArray[13], "f");
+                tempPokemon.Height = RemoveLetter(pokemonArray[13], "f");
 
-                tempPokemon.EvExp = Convert.ToInt32(pokemonArray[14]);
+                tempPokemon.Weight = RemoveLetter(pokemonArray[14], "f");
 
-                tempPokemon.LevelingRate = LevelFixer(TypeStripper(pokemonArray[15]));
+                tempPokemon.EvExp = Convert.ToInt32(pokemonArray[15]);
 
-                tempPokemon.EvHP = Convert.ToInt32(pokemonArray[16]);
-                tempPokemon.EvAttack = Convert.ToInt32(pokemonArray[17]);
-                tempPokemon.EvDefense = Convert.ToInt32(pokemonArray[18]);
-                tempPokemon.EvSpecialAttack = Convert.ToInt32(pokemonArray[19]);
-                tempPokemon.EvSpecialDefense = Convert.ToInt32(pokemonArray[20]);
-                tempPokemon.EvSpeed = Convert.ToInt32(pokemonArray[21]);
+                tempPokemon.LevelingRate = LevelFixer(TypeStripper(pokemonArray[16]));
 
-                tempPokemon.PokedexColor = ToTitleCase(TypeStripper(pokemonArray[22]).ToLower());
+                tempPokemon.EvHP = Convert.ToInt32(pokemonArray[17]);
+                tempPokemon.EvAttack = Convert.ToInt32(pokemonArray[18]);
+                tempPokemon.EvDefense = Convert.ToInt32(pokemonArray[19]);
+                tempPokemon.EvSpecialAttack = Convert.ToInt32(pokemonArray[20]);
+                tempPokemon.EvSpecialDefense = Convert.ToInt32(pokemonArray[21]);
+                tempPokemon.EvSpeed = Convert.ToInt32(pokemonArray[22]);
 
-                tempPokemon.BaseFriendship = pokemonArray[23].Replace(" ", "");
+                tempPokemon.PokedexColor = ToTitleCase(TypeStripper(pokemonArray[23]).ToLower());
 
-                tempPokemon.Species = QuoteRemove(pokemonArray[24]);
+                tempPokemon.BaseFriendship = pokemonArray[24].Replace(" ", "");
+
 
                 bool repeat = true;
                 while (repeat == true)
                 {
-                    for (int q = 0; q < pokemonArray[26].Replace(" ", "").Length; q++)
+                    for (int q = 0; q < pokemonArray[27].Replace(" ", "").Length; q++)
                     {
-                        if (!Char.IsDigit(pokemonArray[26].Replace(" ", "")[q]))
+                        if (!Char.IsDigit(pokemonArray[28].Replace(" ", "")[q]))
                         {
-                            pokemonArray[25] = pokemonArray[25] + pokemonArray[26].Replace("\"", "");
-                            pokemonArray = pokemonArray.Where(w => w != pokemonArray[26]).ToArray();
+                            pokemonArray[26] = pokemonArray[26] + pokemonArray[27].Replace("\"", "");
+                            pokemonArray = pokemonArray.Where(w => w != pokemonArray[27]).ToArray();
                             repeat = true;
                             break;
                         }
-                        else if(q == pokemonArray[26].Replace(" ", "").Length - 1)
+                        else if (q == pokemonArray[27].Replace(" ", "").Length - 1)
                         {
                             repeat = false;
                             break;
@@ -148,26 +158,26 @@ namespace Pokemon_Unity_Database_Creator
                     }
                 }
 
-                tempPokemon.PokedexEntry = pokemonArray[25].Replace("\"", "");
-                if(tempPokemon.PokedexEntry[0] == ' ')
+                tempPokemon.PokedexEntry = pokemonArray[26].Replace("\"", "");
+                if (tempPokemon.PokedexEntry[0] == ' ')
                 {
                     tempPokemon.PokedexEntry = tempPokemon.PokedexEntry.Remove(0, 1);
                 }
 
-                tempPokemon.BaseHP = Convert.ToInt32(pokemonArray[26]);
-                tempPokemon.BaseAttack = Convert.ToInt32(pokemonArray[27]);
-                tempPokemon.BaseDefense = Convert.ToInt32(pokemonArray[28]);
-                tempPokemon.BaseSpecialAttack = Convert.ToInt32(pokemonArray[29]);
-                tempPokemon.BaseSpecialDefense = Convert.ToInt32(pokemonArray[30]);
-                tempPokemon.BaseSpeed = Convert.ToInt32(pokemonArray[31]);
+                tempPokemon.BaseHP = Convert.ToInt32(pokemonArray[27]);
+                tempPokemon.BaseAttack = Convert.ToInt32(pokemonArray[28]);
+                tempPokemon.BaseDefense = Convert.ToInt32(pokemonArray[29]);
+                tempPokemon.BaseSpecialAttack = Convert.ToInt32(pokemonArray[30]);
+                tempPokemon.BaseSpecialDefense = Convert.ToInt32(pokemonArray[31]);
+                tempPokemon.BaseSpeed = Convert.ToInt32(pokemonArray[32]);
 
-                tempPokemon.Luminance = RemoveLetter(pokemonArray[32], "f");
-                tempPokemon.LightColor = ToTitleCase(pokemonArray[33].Replace("Color.", "")).Replace(" ", "");
+                tempPokemon.Luminance = RemoveLetter(pokemonArray[33], "f");
+                tempPokemon.LightColor = ToTitleCase(pokemonArray[34].Replace("Color.", "")).Replace(" ", "");
 
-                pokemonArray[34] = pokemonArray[34].Replace("new", "").Replace(" ", "").Replace("int", "").Replace("[]", "").Replace("{", "");
+                pokemonArray[35] = pokemonArray[35].Replace("new", "").Replace(" ", "").Replace("int", "").Replace("[]", "").Replace("{", "");
                 int Index = 0;
                 List<int> Levels = new List<int>();
-                for (int a = 34; a < pokemonArray.Length - 1; a++)
+                for (int a = 35; a < pokemonArray.Length - 1; a++)
                 {
                     try
                     {
@@ -191,7 +201,7 @@ namespace Pokemon_Unity_Database_Creator
                 Index = SaveB + 1;
 
                 int p = 0;
-                foreach(int Level in Levels)
+                foreach (int Level in Levels)
                 {
                     LevelMove Move = new LevelMove
                     {
@@ -202,7 +212,7 @@ namespace Pokemon_Unity_Database_Creator
                     p++;
                 }
 
-                if(pokemonArray[Index].Replace(" ", "") == "}")
+                if (pokemonArray[Index].Replace(" ", "") == "}")
                 {
                     Index++;
                 }
@@ -251,11 +261,11 @@ namespace Pokemon_Unity_Database_Creator
 
         string LevelFixer(string Target)
         {
-            if(Target == "MEDIUMSLOW")
+            if (Target == "MEDIUMSLOW")
             {
                 Target = "Medium Slow";
             }
-            else if(Target == "MEDIUMFAST")
+            else if (Target == "MEDIUMFAST")
             {
                 Target = "Medium Fast";
             }
@@ -278,7 +288,11 @@ namespace Pokemon_Unity_Database_Creator
             string[] Result;
             Result = Type.Split('.');
             Result = Result.Skip(2).ToArray();
-            return Result[0];
+
+            if (Result == null)
+                return Result[0];
+            else
+                return "NONE";
         }
 
         public string QuoteRemove(string str)
