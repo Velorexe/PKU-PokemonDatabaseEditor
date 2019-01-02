@@ -11,6 +11,14 @@ namespace Pokemon_Unity_Database_Creator
 {
     public class DatabaseImporter
     {
+        /*
+         * This script needs to be rewritten using Regions
+         * Seperating the most important part (Pokedex, ID, Abilities, etc.) into seperate methods
+         * The return value should be the same, but it could be simplified by returning it when it's initiated
+         * public class DatabaseImporter()
+         * That get's called from within the PokemonUnityDatabaseCreator Import event
+         */
+
         public int PokemonAmount = 0;
         public ProgressBar Progress { get; set; }
         public List<PokemonData> ImportDatabase()
@@ -86,6 +94,7 @@ namespace Pokemon_Unity_Database_Creator
 
                 string Pokemon = PokemonData.TrimStart('(');
                 Pokemon = Pokemon.Replace("\r", "");
+                Pokemon = Pokemon.Replace("\n", "");
 
                 string[] pokemonArray = Pokemon.Split(',');
 
