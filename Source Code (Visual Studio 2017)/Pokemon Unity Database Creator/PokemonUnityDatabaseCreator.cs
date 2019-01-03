@@ -417,7 +417,14 @@ namespace Pokemon_Unity_Database_Creator
             }
             if (Pokemon.EvolutionLevel != "")
             {
-                evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+                try
+                {
+                    evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("PKU Database Editor doesn't support Item evolutions yet. Please complain to your nearest developer.");
+                }
             }
             else
             {

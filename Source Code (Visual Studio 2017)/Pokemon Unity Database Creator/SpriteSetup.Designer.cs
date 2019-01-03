@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpriteSetup));
             this.previewGroup = new System.Windows.Forms.GroupBox();
+            this.previewPokemonInfoGroup = new System.Windows.Forms.GroupBox();
+            this.PokemonInfoNameText = new System.Windows.Forms.TextBox();
+            this.pokemonInfoNameLabel = new System.Windows.Forms.Label();
+            this.PokemonInfoPokemonID = new System.Windows.Forms.TextBox();
+            this.pokemonInfoPokemonIDLabel = new System.Windows.Forms.Label();
             this.FileTypeText = new System.Windows.Forms.TextBox();
             this.spriteTypeLabel = new System.Windows.Forms.Label();
             this.pokemonIcon = new System.Windows.Forms.PictureBox();
             this.frontGroup = new System.Windows.Forms.GroupBox();
             this.frontFemaleGroup = new System.Windows.Forms.GroupBox();
+            this.frontFemaleFileNameLabel = new System.Windows.Forms.Label();
+            this.FrontFemaleFileNameText = new System.Windows.Forms.TextBox();
+            this.FrontFemaleSpriteType = new System.Windows.Forms.ComboBox();
+            this.FrontFemaleLocateSprite = new System.Windows.Forms.Button();
+            this.frontFemaleSpriteTypeLabel = new System.Windows.Forms.Label();
             this.frontMaleGroup = new System.Windows.Forms.GroupBox();
+            this.frontMaleFileNameLabel = new System.Windows.Forms.Label();
             this.MaleFrontFileNameText = new System.Windows.Forms.TextBox();
             this.FrontMaleLocateSprite = new System.Windows.Forms.Button();
             this.frontMaleSpriteTypeLabel = new System.Windows.Forms.Label();
@@ -47,29 +59,24 @@
             this.FemaleSpriteCheck = new System.Windows.Forms.CheckBox();
             this.backGroup = new System.Windows.Forms.GroupBox();
             this.backFemaleGroup = new System.Windows.Forms.GroupBox();
-            this.backMaleGroup = new System.Windows.Forms.GroupBox();
-            this.frontMaleFileNameLabel = new System.Windows.Forms.Label();
-            this.frontFemaleFileNameLabel = new System.Windows.Forms.Label();
-            this.FrontFemaleFileNameText = new System.Windows.Forms.TextBox();
-            this.FrontFemaleLocateSprite = new System.Windows.Forms.Button();
-            this.frontFemaleSpriteTypeLabel = new System.Windows.Forms.Label();
-            this.FrontFemaleSpriteType = new System.Windows.Forms.ComboBox();
-            this.backMaleFileNameLabel = new System.Windows.Forms.Label();
-            this.BackMaleFileName = new System.Windows.Forms.TextBox();
-            this.BackMaleSpriteType = new System.Windows.Forms.ComboBox();
-            this.BackMaleLocateSprite = new System.Windows.Forms.Button();
-            this.backMaleSpriteTypeLabel = new System.Windows.Forms.Label();
             this.backFemaleFileNameLabel = new System.Windows.Forms.Label();
             this.BackFemaleFileNameText = new System.Windows.Forms.TextBox();
+            this.BackFemaleLocateSprite = new System.Windows.Forms.Button();
             this.backFemaleSpriteTypeLabel = new System.Windows.Forms.Label();
             this.BackFemaleSpriteType = new System.Windows.Forms.ComboBox();
-            this.BackFemaleLocateSprite = new System.Windows.Forms.Button();
-            this.previewPokemonInfoGroup = new System.Windows.Forms.GroupBox();
-            this.pokemonInfoPokemonIDLabel = new System.Windows.Forms.Label();
-            this.PokemonInfoPokemonID = new System.Windows.Forms.TextBox();
-            this.pokemonInfoNameLabel = new System.Windows.Forms.Label();
-            this.PokemonInfoNameText = new System.Windows.Forms.TextBox();
+            this.backMaleGroup = new System.Windows.Forms.GroupBox();
+            this.backMaleFileNameLabel = new System.Windows.Forms.Label();
+            this.BackMaleFileName = new System.Windows.Forms.TextBox();
+            this.backMaleSpriteTypeLabel = new System.Windows.Forms.Label();
+            this.BackMaleSpriteType = new System.Windows.Forms.ComboBox();
+            this.BackMaleLocateSprite = new System.Windows.Forms.Button();
+            this.SpritesheetWidth = new System.Windows.Forms.NumericUpDown();
+            this.SpritesheetHeight = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.FrameTimer = new System.Windows.Forms.Timer(this.components);
             this.previewGroup.SuspendLayout();
+            this.previewPokemonInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonIcon)).BeginInit();
             this.frontGroup.SuspendLayout();
             this.frontFemaleGroup.SuspendLayout();
@@ -78,11 +85,16 @@
             this.backGroup.SuspendLayout();
             this.backFemaleGroup.SuspendLayout();
             this.backMaleGroup.SuspendLayout();
-            this.previewPokemonInfoGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpritesheetWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpritesheetHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // previewGroup
             // 
+            this.previewGroup.Controls.Add(this.heightLabel);
+            this.previewGroup.Controls.Add(this.label1);
+            this.previewGroup.Controls.Add(this.SpritesheetHeight);
+            this.previewGroup.Controls.Add(this.SpritesheetWidth);
             this.previewGroup.Controls.Add(this.previewPokemonInfoGroup);
             this.previewGroup.Controls.Add(this.FileTypeText);
             this.previewGroup.Controls.Add(this.spriteTypeLabel);
@@ -93,6 +105,53 @@
             this.previewGroup.TabIndex = 0;
             this.previewGroup.TabStop = false;
             this.previewGroup.Text = "Preview";
+            // 
+            // previewPokemonInfoGroup
+            // 
+            this.previewPokemonInfoGroup.Controls.Add(this.PokemonInfoNameText);
+            this.previewPokemonInfoGroup.Controls.Add(this.pokemonInfoNameLabel);
+            this.previewPokemonInfoGroup.Controls.Add(this.PokemonInfoPokemonID);
+            this.previewPokemonInfoGroup.Controls.Add(this.pokemonInfoPokemonIDLabel);
+            this.previewPokemonInfoGroup.Location = new System.Drawing.Point(9, 251);
+            this.previewPokemonInfoGroup.Name = "previewPokemonInfoGroup";
+            this.previewPokemonInfoGroup.Size = new System.Drawing.Size(197, 70);
+            this.previewPokemonInfoGroup.TabIndex = 4;
+            this.previewPokemonInfoGroup.TabStop = false;
+            this.previewPokemonInfoGroup.Text = "Pokemon Info";
+            // 
+            // PokemonInfoNameText
+            // 
+            this.PokemonInfoNameText.Location = new System.Drawing.Point(51, 43);
+            this.PokemonInfoNameText.Name = "PokemonInfoNameText";
+            this.PokemonInfoNameText.ReadOnly = true;
+            this.PokemonInfoNameText.Size = new System.Drawing.Size(140, 20);
+            this.PokemonInfoNameText.TabIndex = 3;
+            // 
+            // pokemonInfoNameLabel
+            // 
+            this.pokemonInfoNameLabel.AutoSize = true;
+            this.pokemonInfoNameLabel.Location = new System.Drawing.Point(7, 46);
+            this.pokemonInfoNameLabel.Name = "pokemonInfoNameLabel";
+            this.pokemonInfoNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.pokemonInfoNameLabel.TabIndex = 2;
+            this.pokemonInfoNameLabel.Text = "Name:";
+            // 
+            // PokemonInfoPokemonID
+            // 
+            this.PokemonInfoPokemonID.Location = new System.Drawing.Point(34, 17);
+            this.PokemonInfoPokemonID.Name = "PokemonInfoPokemonID";
+            this.PokemonInfoPokemonID.ReadOnly = true;
+            this.PokemonInfoPokemonID.Size = new System.Drawing.Size(157, 20);
+            this.PokemonInfoPokemonID.TabIndex = 1;
+            // 
+            // pokemonInfoPokemonIDLabel
+            // 
+            this.pokemonInfoPokemonIDLabel.AutoSize = true;
+            this.pokemonInfoPokemonIDLabel.Location = new System.Drawing.Point(7, 20);
+            this.pokemonInfoPokemonIDLabel.Name = "pokemonInfoPokemonIDLabel";
+            this.pokemonInfoPokemonIDLabel.Size = new System.Drawing.Size(21, 13);
+            this.pokemonInfoPokemonIDLabel.TabIndex = 0;
+            this.pokemonInfoPokemonIDLabel.Text = "ID:";
             // 
             // FileTypeText
             // 
@@ -150,6 +209,50 @@
             this.frontFemaleGroup.TabStop = false;
             this.frontFemaleGroup.Text = "Female";
             // 
+            // frontFemaleFileNameLabel
+            // 
+            this.frontFemaleFileNameLabel.AutoSize = true;
+            this.frontFemaleFileNameLabel.Location = new System.Drawing.Point(6, 49);
+            this.frontFemaleFileNameLabel.Name = "frontFemaleFileNameLabel";
+            this.frontFemaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.frontFemaleFileNameLabel.TabIndex = 9;
+            this.frontFemaleFileNameLabel.Text = "File Name:";
+            // 
+            // FrontFemaleFileNameText
+            // 
+            this.FrontFemaleFileNameText.Location = new System.Drawing.Point(69, 46);
+            this.FrontFemaleFileNameText.Name = "FrontFemaleFileNameText";
+            this.FrontFemaleFileNameText.ReadOnly = true;
+            this.FrontFemaleFileNameText.Size = new System.Drawing.Size(125, 20);
+            this.FrontFemaleFileNameText.TabIndex = 8;
+            // 
+            // FrontFemaleSpriteType
+            // 
+            this.FrontFemaleSpriteType.FormattingEnabled = true;
+            this.FrontFemaleSpriteType.Location = new System.Drawing.Point(76, 19);
+            this.FrontFemaleSpriteType.Name = "FrontFemaleSpriteType";
+            this.FrontFemaleSpriteType.Size = new System.Drawing.Size(118, 21);
+            this.FrontFemaleSpriteType.TabIndex = 5;
+            // 
+            // FrontFemaleLocateSprite
+            // 
+            this.FrontFemaleLocateSprite.Location = new System.Drawing.Point(9, 71);
+            this.FrontFemaleLocateSprite.Name = "FrontFemaleLocateSprite";
+            this.FrontFemaleLocateSprite.Size = new System.Drawing.Size(185, 23);
+            this.FrontFemaleLocateSprite.TabIndex = 7;
+            this.FrontFemaleLocateSprite.Text = "Locate Sprite";
+            this.FrontFemaleLocateSprite.UseVisualStyleBackColor = true;
+            this.FrontFemaleLocateSprite.Click += new System.EventHandler(this.FrontFemaleLocateSprite_Click);
+            // 
+            // frontFemaleSpriteTypeLabel
+            // 
+            this.frontFemaleSpriteTypeLabel.AutoSize = true;
+            this.frontFemaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 22);
+            this.frontFemaleSpriteTypeLabel.Name = "frontFemaleSpriteTypeLabel";
+            this.frontFemaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
+            this.frontFemaleSpriteTypeLabel.TabIndex = 6;
+            this.frontFemaleSpriteTypeLabel.Text = "Sprite Type:";
+            // 
             // frontMaleGroup
             // 
             this.frontMaleGroup.Controls.Add(this.frontMaleFileNameLabel);
@@ -163,6 +266,15 @@
             this.frontMaleGroup.TabIndex = 0;
             this.frontMaleGroup.TabStop = false;
             this.frontMaleGroup.Text = "Male";
+            // 
+            // frontMaleFileNameLabel
+            // 
+            this.frontMaleFileNameLabel.AutoSize = true;
+            this.frontMaleFileNameLabel.Location = new System.Drawing.Point(6, 49);
+            this.frontMaleFileNameLabel.Name = "frontMaleFileNameLabel";
+            this.frontMaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.frontMaleFileNameLabel.TabIndex = 4;
+            this.frontMaleFileNameLabel.Text = "File Name:";
             // 
             // MaleFrontFileNameText
             // 
@@ -276,6 +388,50 @@
             this.backFemaleGroup.TabStop = false;
             this.backFemaleGroup.Text = "Female";
             // 
+            // backFemaleFileNameLabel
+            // 
+            this.backFemaleFileNameLabel.AutoSize = true;
+            this.backFemaleFileNameLabel.Location = new System.Drawing.Point(6, 48);
+            this.backFemaleFileNameLabel.Name = "backFemaleFileNameLabel";
+            this.backFemaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.backFemaleFileNameLabel.TabIndex = 19;
+            this.backFemaleFileNameLabel.Text = "File Name:";
+            // 
+            // BackFemaleFileNameText
+            // 
+            this.BackFemaleFileNameText.Location = new System.Drawing.Point(69, 45);
+            this.BackFemaleFileNameText.Name = "BackFemaleFileNameText";
+            this.BackFemaleFileNameText.ReadOnly = true;
+            this.BackFemaleFileNameText.Size = new System.Drawing.Size(125, 20);
+            this.BackFemaleFileNameText.TabIndex = 18;
+            // 
+            // BackFemaleLocateSprite
+            // 
+            this.BackFemaleLocateSprite.Location = new System.Drawing.Point(9, 70);
+            this.BackFemaleLocateSprite.Name = "BackFemaleLocateSprite";
+            this.BackFemaleLocateSprite.Size = new System.Drawing.Size(185, 23);
+            this.BackFemaleLocateSprite.TabIndex = 17;
+            this.BackFemaleLocateSprite.Text = "Locate Sprite";
+            this.BackFemaleLocateSprite.UseVisualStyleBackColor = true;
+            this.BackFemaleLocateSprite.Click += new System.EventHandler(this.BackFemaleLocateSprite_Click);
+            // 
+            // backFemaleSpriteTypeLabel
+            // 
+            this.backFemaleSpriteTypeLabel.AutoSize = true;
+            this.backFemaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 21);
+            this.backFemaleSpriteTypeLabel.Name = "backFemaleSpriteTypeLabel";
+            this.backFemaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
+            this.backFemaleSpriteTypeLabel.TabIndex = 16;
+            this.backFemaleSpriteTypeLabel.Text = "Sprite Type:";
+            // 
+            // BackFemaleSpriteType
+            // 
+            this.BackFemaleSpriteType.FormattingEnabled = true;
+            this.BackFemaleSpriteType.Location = new System.Drawing.Point(76, 18);
+            this.BackFemaleSpriteType.Name = "BackFemaleSpriteType";
+            this.BackFemaleSpriteType.Size = new System.Drawing.Size(118, 21);
+            this.BackFemaleSpriteType.TabIndex = 15;
+            // 
             // backMaleGroup
             // 
             this.backMaleGroup.Controls.Add(this.backMaleFileNameLabel);
@@ -289,59 +445,6 @@
             this.backMaleGroup.TabIndex = 0;
             this.backMaleGroup.TabStop = false;
             this.backMaleGroup.Text = "Male";
-            // 
-            // frontMaleFileNameLabel
-            // 
-            this.frontMaleFileNameLabel.AutoSize = true;
-            this.frontMaleFileNameLabel.Location = new System.Drawing.Point(6, 49);
-            this.frontMaleFileNameLabel.Name = "frontMaleFileNameLabel";
-            this.frontMaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
-            this.frontMaleFileNameLabel.TabIndex = 4;
-            this.frontMaleFileNameLabel.Text = "File Name:";
-            // 
-            // frontFemaleFileNameLabel
-            // 
-            this.frontFemaleFileNameLabel.AutoSize = true;
-            this.frontFemaleFileNameLabel.Location = new System.Drawing.Point(6, 49);
-            this.frontFemaleFileNameLabel.Name = "frontFemaleFileNameLabel";
-            this.frontFemaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
-            this.frontFemaleFileNameLabel.TabIndex = 9;
-            this.frontFemaleFileNameLabel.Text = "File Name:";
-            // 
-            // FrontFemaleFileNameText
-            // 
-            this.FrontFemaleFileNameText.Location = new System.Drawing.Point(69, 46);
-            this.FrontFemaleFileNameText.Name = "FrontFemaleFileNameText";
-            this.FrontFemaleFileNameText.ReadOnly = true;
-            this.FrontFemaleFileNameText.Size = new System.Drawing.Size(125, 20);
-            this.FrontFemaleFileNameText.TabIndex = 8;
-            // 
-            // FrontFemaleLocateSprite
-            // 
-            this.FrontFemaleLocateSprite.Location = new System.Drawing.Point(9, 71);
-            this.FrontFemaleLocateSprite.Name = "FrontFemaleLocateSprite";
-            this.FrontFemaleLocateSprite.Size = new System.Drawing.Size(185, 23);
-            this.FrontFemaleLocateSprite.TabIndex = 7;
-            this.FrontFemaleLocateSprite.Text = "Locate Sprite";
-            this.FrontFemaleLocateSprite.UseVisualStyleBackColor = true;
-            this.FrontFemaleLocateSprite.Click += new System.EventHandler(this.FrontFemaleLocateSprite_Click);
-            // 
-            // frontFemaleSpriteTypeLabel
-            // 
-            this.frontFemaleSpriteTypeLabel.AutoSize = true;
-            this.frontFemaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 22);
-            this.frontFemaleSpriteTypeLabel.Name = "frontFemaleSpriteTypeLabel";
-            this.frontFemaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
-            this.frontFemaleSpriteTypeLabel.TabIndex = 6;
-            this.frontFemaleSpriteTypeLabel.Text = "Sprite Type:";
-            // 
-            // FrontFemaleSpriteType
-            // 
-            this.FrontFemaleSpriteType.FormattingEnabled = true;
-            this.FrontFemaleSpriteType.Location = new System.Drawing.Point(76, 19);
-            this.FrontFemaleSpriteType.Name = "FrontFemaleSpriteType";
-            this.FrontFemaleSpriteType.Size = new System.Drawing.Size(118, 21);
-            this.FrontFemaleSpriteType.TabIndex = 5;
             // 
             // backMaleFileNameLabel
             // 
@@ -359,6 +462,15 @@
             this.BackMaleFileName.ReadOnly = true;
             this.BackMaleFileName.Size = new System.Drawing.Size(125, 20);
             this.BackMaleFileName.TabIndex = 13;
+            // 
+            // backMaleSpriteTypeLabel
+            // 
+            this.backMaleSpriteTypeLabel.AutoSize = true;
+            this.backMaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 18);
+            this.backMaleSpriteTypeLabel.Name = "backMaleSpriteTypeLabel";
+            this.backMaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
+            this.backMaleSpriteTypeLabel.TabIndex = 11;
+            this.backMaleSpriteTypeLabel.Text = "Sprite Type:";
             // 
             // BackMaleSpriteType
             // 
@@ -378,105 +490,52 @@
             this.BackMaleLocateSprite.UseVisualStyleBackColor = true;
             this.BackMaleLocateSprite.Click += new System.EventHandler(this.BackMaleLocateSprite_Click);
             // 
-            // backMaleSpriteTypeLabel
+            // SpritesheetWidth
             // 
-            this.backMaleSpriteTypeLabel.AutoSize = true;
-            this.backMaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 18);
-            this.backMaleSpriteTypeLabel.Name = "backMaleSpriteTypeLabel";
-            this.backMaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
-            this.backMaleSpriteTypeLabel.TabIndex = 11;
-            this.backMaleSpriteTypeLabel.Text = "Sprite Type:";
+            this.SpritesheetWidth.Location = new System.Drawing.Point(109, 326);
+            this.SpritesheetWidth.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.SpritesheetWidth.Name = "SpritesheetWidth";
+            this.SpritesheetWidth.Size = new System.Drawing.Size(97, 20);
+            this.SpritesheetWidth.TabIndex = 5;
             // 
-            // backFemaleFileNameLabel
+            // SpritesheetHeight
             // 
-            this.backFemaleFileNameLabel.AutoSize = true;
-            this.backFemaleFileNameLabel.Location = new System.Drawing.Point(6, 48);
-            this.backFemaleFileNameLabel.Name = "backFemaleFileNameLabel";
-            this.backFemaleFileNameLabel.Size = new System.Drawing.Size(57, 13);
-            this.backFemaleFileNameLabel.TabIndex = 19;
-            this.backFemaleFileNameLabel.Text = "File Name:";
+            this.SpritesheetHeight.Location = new System.Drawing.Point(109, 348);
+            this.SpritesheetHeight.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.SpritesheetHeight.Name = "SpritesheetHeight";
+            this.SpritesheetHeight.Size = new System.Drawing.Size(97, 20);
+            this.SpritesheetHeight.TabIndex = 6;
             // 
-            // BackFemaleFileNameText
+            // label1
             // 
-            this.BackFemaleFileNameText.Location = new System.Drawing.Point(69, 45);
-            this.BackFemaleFileNameText.Name = "BackFemaleFileNameText";
-            this.BackFemaleFileNameText.ReadOnly = true;
-            this.BackFemaleFileNameText.Size = new System.Drawing.Size(125, 20);
-            this.BackFemaleFileNameText.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 328);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Spritesheet Width:";
             // 
-            // backFemaleSpriteTypeLabel
+            // heightLabel
             // 
-            this.backFemaleSpriteTypeLabel.AutoSize = true;
-            this.backFemaleSpriteTypeLabel.Location = new System.Drawing.Point(6, 21);
-            this.backFemaleSpriteTypeLabel.Name = "backFemaleSpriteTypeLabel";
-            this.backFemaleSpriteTypeLabel.Size = new System.Drawing.Size(64, 13);
-            this.backFemaleSpriteTypeLabel.TabIndex = 16;
-            this.backFemaleSpriteTypeLabel.Text = "Sprite Type:";
+            this.heightLabel.AutoSize = true;
+            this.heightLabel.Location = new System.Drawing.Point(9, 350);
+            this.heightLabel.Name = "heightLabel";
+            this.heightLabel.Size = new System.Drawing.Size(100, 13);
+            this.heightLabel.TabIndex = 8;
+            this.heightLabel.Text = "Spritesheet Height: ";
             // 
-            // BackFemaleSpriteType
+            // FrameTimer
             // 
-            this.BackFemaleSpriteType.FormattingEnabled = true;
-            this.BackFemaleSpriteType.Location = new System.Drawing.Point(76, 18);
-            this.BackFemaleSpriteType.Name = "BackFemaleSpriteType";
-            this.BackFemaleSpriteType.Size = new System.Drawing.Size(118, 21);
-            this.BackFemaleSpriteType.TabIndex = 15;
-            // 
-            // BackFemaleLocateSprite
-            // 
-            this.BackFemaleLocateSprite.Location = new System.Drawing.Point(9, 70);
-            this.BackFemaleLocateSprite.Name = "BackFemaleLocateSprite";
-            this.BackFemaleLocateSprite.Size = new System.Drawing.Size(185, 23);
-            this.BackFemaleLocateSprite.TabIndex = 17;
-            this.BackFemaleLocateSprite.Text = "Locate Sprite";
-            this.BackFemaleLocateSprite.UseVisualStyleBackColor = true;
-            this.BackFemaleLocateSprite.Click += new System.EventHandler(this.BackFemaleLocateSprite_Click);
-            // 
-            // previewPokemonInfoGroup
-            // 
-            this.previewPokemonInfoGroup.Controls.Add(this.PokemonInfoNameText);
-            this.previewPokemonInfoGroup.Controls.Add(this.pokemonInfoNameLabel);
-            this.previewPokemonInfoGroup.Controls.Add(this.PokemonInfoPokemonID);
-            this.previewPokemonInfoGroup.Controls.Add(this.pokemonInfoPokemonIDLabel);
-            this.previewPokemonInfoGroup.Location = new System.Drawing.Point(9, 251);
-            this.previewPokemonInfoGroup.Name = "previewPokemonInfoGroup";
-            this.previewPokemonInfoGroup.Size = new System.Drawing.Size(197, 70);
-            this.previewPokemonInfoGroup.TabIndex = 4;
-            this.previewPokemonInfoGroup.TabStop = false;
-            this.previewPokemonInfoGroup.Text = "Pokemon Info";
-            // 
-            // pokemonInfoPokemonIDLabel
-            // 
-            this.pokemonInfoPokemonIDLabel.AutoSize = true;
-            this.pokemonInfoPokemonIDLabel.Location = new System.Drawing.Point(7, 20);
-            this.pokemonInfoPokemonIDLabel.Name = "pokemonInfoPokemonIDLabel";
-            this.pokemonInfoPokemonIDLabel.Size = new System.Drawing.Size(21, 13);
-            this.pokemonInfoPokemonIDLabel.TabIndex = 0;
-            this.pokemonInfoPokemonIDLabel.Text = "ID:";
-            // 
-            // PokemonInfoPokemonID
-            // 
-            this.PokemonInfoPokemonID.Location = new System.Drawing.Point(34, 17);
-            this.PokemonInfoPokemonID.Name = "PokemonInfoPokemonID";
-            this.PokemonInfoPokemonID.ReadOnly = true;
-            this.PokemonInfoPokemonID.Size = new System.Drawing.Size(157, 20);
-            this.PokemonInfoPokemonID.TabIndex = 1;
-            // 
-            // pokemonInfoNameLabel
-            // 
-            this.pokemonInfoNameLabel.AutoSize = true;
-            this.pokemonInfoNameLabel.Location = new System.Drawing.Point(7, 46);
-            this.pokemonInfoNameLabel.Name = "pokemonInfoNameLabel";
-            this.pokemonInfoNameLabel.Size = new System.Drawing.Size(38, 13);
-            this.pokemonInfoNameLabel.TabIndex = 2;
-            this.pokemonInfoNameLabel.Text = "Name:";
-            // 
-            // PokemonInfoNameText
-            // 
-            this.PokemonInfoNameText.Location = new System.Drawing.Point(51, 43);
-            this.PokemonInfoNameText.Name = "PokemonInfoNameText";
-            this.PokemonInfoNameText.ReadOnly = true;
-            this.PokemonInfoNameText.Size = new System.Drawing.Size(140, 20);
-            this.PokemonInfoNameText.TabIndex = 3;
+            this.FrameTimer.Interval = 40;
+            this.FrameTimer.Tick += new System.EventHandler(this.FrameTimer_Tick);
             // 
             // SpriteSetup
             // 
@@ -493,6 +552,8 @@
             this.Text = "Sprite Setup";
             this.previewGroup.ResumeLayout(false);
             this.previewGroup.PerformLayout();
+            this.previewPokemonInfoGroup.ResumeLayout(false);
+            this.previewPokemonInfoGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonIcon)).EndInit();
             this.frontGroup.ResumeLayout(false);
             this.frontFemaleGroup.ResumeLayout(false);
@@ -506,8 +567,8 @@
             this.backFemaleGroup.PerformLayout();
             this.backMaleGroup.ResumeLayout(false);
             this.backMaleGroup.PerformLayout();
-            this.previewPokemonInfoGroup.ResumeLayout(false);
-            this.previewPokemonInfoGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SpritesheetWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpritesheetHeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,5 +615,10 @@
         private System.Windows.Forms.TextBox PokemonInfoPokemonID;
         private System.Windows.Forms.Label pokemonInfoNameLabel;
         private System.Windows.Forms.TextBox PokemonInfoNameText;
+        private System.Windows.Forms.Label heightLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown SpritesheetHeight;
+        private System.Windows.Forms.NumericUpDown SpritesheetWidth;
+        private System.Windows.Forms.Timer FrameTimer;
     }
 }

@@ -9,6 +9,7 @@ namespace Pokemon_Unity_Database_Creator
     public partial class SpriteSetup : Form
     {
         private string resourcesFolder;
+        private PokemonSprite pokemonSprite;
 
         //Current Sprite Image
         public Image GIF;
@@ -26,6 +27,8 @@ namespace Pokemon_Unity_Database_Creator
             FrontFemaleSpriteType.DataSource = Enum.GetNames(typeof(SpriteTypes));
             BackMaleSpriteType.DataSource = Enum.GetNames(typeof(SpriteTypes));
             BackFemaleSpriteType.DataSource = Enum.GetNames(typeof(SpriteTypes));
+
+            FrameTimer.Start();
         }
 
         private void FemaleSpriteCheck_CheckedChanged(object sender, EventArgs e)
@@ -56,13 +59,6 @@ namespace Pokemon_Unity_Database_Creator
                     MessageBox.Show("The selected Resources Folder doesn't contain the folder \"PokemonBackSprites\" and \" PokemonSprites\".");
                 }
             }
-        }
-
-        private enum SpriteTypes
-        {
-            GIF,
-            Frames,
-            Spritesheet
         }
 
         private void FrontMaleLocateSprite_Click(object sender, EventArgs e)
@@ -112,7 +108,9 @@ namespace Pokemon_Unity_Database_Creator
                 DialogResult result = openFileDialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    
+                    pokemonSprite = new PokemonSprite() { SpriteType = SpriteTypes.Spritesheet };
+                    pokemonSprite.CurrentFrameIndex = 0;
+                    pokemonSprite.SetSpriteSheet(new Bitmap(openFileDialog.FileName), (int)SpritesheetWidth.Value, (int)SpritesheetHeight.Value);
                 }
             }
             else if(spriteType.SelectedItem.ToString() == SpriteTypes.Frames.ToString())
@@ -141,5 +139,29 @@ namespace Pokemon_Unity_Database_Creator
             };
             pokemonIcon.Image = gif.GetNextFrame();
         }
+
+        private void FrameTimer_Tick(object sender, EventArgs e)
+        {
+            if(null != pokemonSprite && pokemonSprite.SpriteType != SpriteTypes.GIF && pokemonSprite.Frames.Length > 0)
+            {
+                pokemonSprite.CurrentFrameIndex++;
+                if(pokemonSprite.CurrentFrameIndex < pokemonSprite.Frames.Length)
+                {
+                    pokemonIcon.Image = pokemonSprite.Frames[pokemonSprite.CurrentFrameIndex];
+                }
+                else
+                {
+                    pokemonSprite.CurrentFrameIndex = 0;
+                    pokemonIcon.Image = pokemonSprite.Frames[pokemonSprite.CurrentFrameIndex];
+                }
+            }
+        }
+    }
+
+    public enum SpriteTypes
+    {
+        GIF,
+        Frames,
+        Spritesheet
     }
 }
