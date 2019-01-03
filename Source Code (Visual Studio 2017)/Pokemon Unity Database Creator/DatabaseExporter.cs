@@ -22,7 +22,7 @@ namespace Pokemon_Unity_Database_Creator
             string PokemonDatabase = "";
             foreach (PokemonData Pokemon in Pokemons)
             {
-                PokemonDatabase = PokemonDatabase + Pokemon.ToString() + "\n";
+                PokemonDatabase = PokemonDatabase + Pokemon.ToString() + "\n\n";
                 if (PokemonDatabase != "")
                 {
                     PokemonDatabase = PokemonDatabase.Remove(PokemonDatabase.Length - 1);

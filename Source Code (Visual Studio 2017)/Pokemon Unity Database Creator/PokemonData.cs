@@ -136,7 +136,10 @@ namespace Pokemon_Unity_Database_Creator
             string Result = "";
             foreach(string Move in Moves)
             {
-                Result = Result + "\"" + Move + "\"" + ", ";
+                if (Move != "")
+                {
+                    Result = Result + "\"" + Move + "\"" + ", ";
+                }
             }
 
             if (Result != "")
@@ -150,12 +153,12 @@ namespace Pokemon_Unity_Database_Creator
 
         public string AbilityCheck(string Ability)
         {
-            string Result = "";
+            string Result = Ability;
             if(Ability == "None")
             {
                 Result = "null";
             }
-            return Result;
+            return Ability;
         }
 
         public override string ToString()
@@ -165,13 +168,13 @@ namespace Pokemon_Unity_Database_Creator
                    $"{EvExp.ToString()}, PokemonData.LevelingRate.{ToUpperRemoveSpace(LevelingRate)}, {EvHP.ToString()}, {EvAttack.ToString()}, {EvDefense.ToString()}, {EvSpecialAttack.ToString()}, {EvSpecialDefense.ToString()}, {EvSpeed.ToString()}, PokemonData.PokedexColor.{ToUpperRemoveSpace(PokedexColor)}, {BaseFriendship.ToString()},\n" +
                    $"\"{Species}\", \"{PokedexEntry}\",\n" +
                    $"{BaseHP.ToString()}, {BaseAttack.ToString()}, {BaseDefense.ToString()}, {BaseSpecialAttack.ToString()}, {BaseSpecialDefense.ToString()}, {BaseSpeed.ToString()}, {Luminance.ToString()}f, Color.{LightColor.ToLower()}," +
-                   "new int[] {{" + $"{MoveLevels(LevelMoves)}" + "}},\n" +
+                   "new int[] {" + $"{MoveLevels(LevelMoves)}" + "},\n" +
                    "new string[]\n" +
-                   "{{\n" +
+                   "{\n" +
                    $"{MoveNames(LevelMoves)}\n" +
-                   "}},\n" +
-                   "new string[] {{ " + HMandTM(hmAndTM) + " }},\n" +
-                   "new int[] {{" + EvolutionID + "}}, new string[] {{" + $"\"Level,{EvolutionLevel}\"" + "}}),\n");
+                   "},\n" +
+                   "new string[] { " + HMandTM(hmAndTM) + " },\n" +
+                   "new int[] {" + EvolutionID + "}, new string[] {" + $"\"Level,{EvolutionLevel}\"" + "}),\n");
         }
     }
 }

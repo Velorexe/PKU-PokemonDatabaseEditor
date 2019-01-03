@@ -179,7 +179,7 @@ namespace Pokemon_Unity_Database_Creator
                 }
 
                 tempPokemon.PokedexEntry = tempPokemon.PokedexEntry.Replace("\"", "");
-                if (tempPokemon.PokedexEntry[0] == ' ')
+                while(tempPokemon.PokedexEntry[0] == ' ')
                 {
                     tempPokemon.PokedexEntry = tempPokemon.PokedexEntry.Remove(0, 1);
                 }
@@ -232,13 +232,13 @@ namespace Pokemon_Unity_Database_Creator
                     p++;
                 }
 
-                if (pokemonArray[Index].Replace(" ", "") == "}")
+                if (pokemonArray[Index].Replace(" ", "") == "}" || pokemonArray[Index][pokemonArray[Index].Length - 1] == '}')
                 {
                     Index++;
                 }
 
                 List<string> HmMoves = new List<string>();
-                pokemonArray[Index] = pokemonArray[Index].Replace("new", "").Replace("string", "").Replace("[]", "").Replace("{", "").Replace(" ", "");
+                pokemonArray[Index] = pokemonArray[Index].Replace("new", "").Replace("string", "").Replace("[]", "").Replace("{", "").Replace(" ", "").Replace("\"", "");
                 for (int o = Index; o < pokemonArray.Length - 1; o++)
                 {
                     if (pokemonArray[o].Replace(" ", "").StartsWith("newint[]"))
