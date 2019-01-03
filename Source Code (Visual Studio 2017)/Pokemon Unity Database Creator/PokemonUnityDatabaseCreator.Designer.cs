@@ -141,8 +141,6 @@
             this.databaseNavigationName = new System.Windows.Forms.ComboBox();
             this.spriteGroup = new System.Windows.Forms.GroupBox();
             this.spriteButton = new System.Windows.Forms.Button();
-            this.spriteLabel = new System.Windows.Forms.Label();
-            this.spriteTypeBox = new System.Windows.Forms.ComboBox();
             this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pokemonGroup.SuspendLayout();
@@ -2166,8 +2164,6 @@
             // spriteGroup
             // 
             this.spriteGroup.Controls.Add(this.spriteButton);
-            this.spriteGroup.Controls.Add(this.spriteLabel);
-            this.spriteGroup.Controls.Add(this.spriteTypeBox);
             this.spriteGroup.Location = new System.Drawing.Point(12, 511);
             this.spriteGroup.Name = "spriteGroup";
             this.spriteGroup.Size = new System.Drawing.Size(213, 79);
@@ -2177,37 +2173,13 @@
             // 
             // spriteButton
             // 
-            this.spriteButton.Location = new System.Drawing.Point(10, 42);
+            this.spriteButton.Location = new System.Drawing.Point(10, 19);
             this.spriteButton.Name = "spriteButton";
-            this.spriteButton.Size = new System.Drawing.Size(196, 23);
+            this.spriteButton.Size = new System.Drawing.Size(196, 46);
             this.spriteButton.TabIndex = 2;
-            this.spriteButton.Text = "Open";
+            this.spriteButton.Text = "Setup";
             this.spriteButton.UseVisualStyleBackColor = true;
             this.spriteButton.Click += new System.EventHandler(this.SpriteButton_Click);
-            // 
-            // spriteLabel
-            // 
-            this.spriteLabel.AutoSize = true;
-            this.spriteLabel.Location = new System.Drawing.Point(7, 20);
-            this.spriteLabel.Name = "spriteLabel";
-            this.spriteLabel.Size = new System.Drawing.Size(64, 13);
-            this.spriteLabel.TabIndex = 1;
-            this.spriteLabel.Text = "Sprite Type:";
-            // 
-            // spriteTypeBox
-            // 
-            this.spriteTypeBox.FormattingEnabled = true;
-            this.spriteTypeBox.Items.AddRange(new object[] {
-            "GIF",
-            "Individual Frames",
-            "Single Frame",
-            "Spritesheet"});
-            this.spriteTypeBox.Location = new System.Drawing.Point(77, 15);
-            this.spriteTypeBox.Name = "spriteTypeBox";
-            this.spriteTypeBox.Size = new System.Drawing.Size(128, 21);
-            this.spriteTypeBox.Sorted = true;
-            this.spriteTypeBox.TabIndex = 0;
-            this.spriteTypeBox.Text = "GIF";
             // 
             // openFileDialog
             // 
@@ -2284,7 +2256,6 @@
             this.navigationBox.ResumeLayout(false);
             this.navigationBox.PerformLayout();
             this.spriteGroup.ResumeLayout(false);
-            this.spriteGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -2386,8 +2357,6 @@
         private System.Windows.Forms.ComboBox databaseNavigationName;
         private System.Windows.Forms.Label navigationNameLabel;
         private System.Windows.Forms.GroupBox spriteGroup;
-        private System.Windows.Forms.Label spriteLabel;
-        private System.Windows.Forms.ComboBox spriteTypeBox;
         private System.Windows.Forms.Button spriteButton;
         private System.Windows.Forms.Label hatchTimeInfoLabel;
         private System.Windows.Forms.Button addPokemon;

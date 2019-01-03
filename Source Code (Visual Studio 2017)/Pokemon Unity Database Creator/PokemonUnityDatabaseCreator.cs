@@ -89,7 +89,6 @@ namespace Pokemon_Unity_Database_Creator
             pokemonComboItems.Add(levelingRate);
             pokemonComboItems.Add(pokedexColor);
             pokemonComboItems.Add(lightColor);
-            pokemonComboItems.Add(spriteTypeBox);
 
             //Filling Rich Text Items
             pokemonRichTextItems.Add(pokedexEntry);
@@ -487,7 +486,16 @@ namespace Pokemon_Unity_Database_Creator
 
         private void SpriteButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
+            if (pokemons.Count > 0)
+            {
+                SpriteSetup spriteSetup = new SpriteSetup(pokemons[currentPokemonIndex]);
+                spriteSetup.Show();
+            }
+            else
+            {
+                MessageBox.Show("You haven't added any Pokemon.");
+            }
+            /*OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 FileName = "Icon",
                 Filter = "GIF Files|*.gif"
@@ -496,7 +504,7 @@ namespace Pokemon_Unity_Database_Creator
             if (result == DialogResult.OK)
             {
                 GetPokemonGIFIcon(openFileDialog.FileName);
-            }
+            }*/
         }
 
         public TimeSpan GetGifDuration(Image image, int fps = 60)

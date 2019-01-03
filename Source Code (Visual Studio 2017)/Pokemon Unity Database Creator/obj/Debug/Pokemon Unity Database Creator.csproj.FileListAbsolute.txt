@@ -46,3 +46,4 @@ C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visua
 C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
 C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.exe
 C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.SpriteSetup.resources
