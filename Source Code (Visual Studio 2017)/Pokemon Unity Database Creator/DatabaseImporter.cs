@@ -197,13 +197,13 @@ namespace Pokemon_Unity_Database_Creator
                 pokemonArray[33 + arrayOffset] = pokemonArray[33 + arrayOffset].Replace("new", "").Replace(" ", "").Replace("int", "").Replace("[]", "").Replace("{", "");
                 int Index = 0;
                 List<int> Levels = new List<int>();
-                for (int a = 35 + arrayOffset; a < pokemonArray.Length - 1; a++)
+                for (int a = 33 + arrayOffset; a < pokemonArray.Length - 1; a++)
                 {
                     try
                     {
                         Levels.Add(Convert.ToInt32(pokemonArray[a].Replace(" ", "").Replace("}", "")));
                     }
-                    catch (System.FormatException)
+                    catch (FormatException)
                     {
                         Index = a;
                         break;
@@ -218,7 +218,7 @@ namespace Pokemon_Unity_Database_Creator
                     Moves.Add(SpaceBeforeCapital(pokemonArray[b].Replace("\"", "").Replace("}", "").Replace(" ", "")));
                     SaveB = b;
                 }
-                Index = SaveB + 1 + arrayOffset;
+                Index = SaveB + 1;
 
                 int p = 0;
                 foreach (int Level in Levels)
@@ -232,13 +232,13 @@ namespace Pokemon_Unity_Database_Creator
                     p++;
                 }
 
-                if (pokemonArray[Index].Replace(" ", "") == "}" || pokemonArray[Index][pokemonArray[Index].Length - 1] == '}')
+                if (pokemonArray[Index].Replace(" ", "") == "}")
                 {
                     Index++;
                 }
 
                 List<string> HmMoves = new List<string>();
-                pokemonArray[Index] = pokemonArray[Index].Replace("new", "").Replace("string", "").Replace("[]", "").Replace("{", "").Replace(" ", "").Replace("\"", "");
+                pokemonArray[Index] = pokemonArray[Index].Replace("new", "").Replace("string", "").Replace("[]", "").Replace("{", "").Replace(" ", "");
                 for (int o = Index; o < pokemonArray.Length - 1; o++)
                 {
                     if (pokemonArray[o].Replace(" ", "").StartsWith("newint[]"))

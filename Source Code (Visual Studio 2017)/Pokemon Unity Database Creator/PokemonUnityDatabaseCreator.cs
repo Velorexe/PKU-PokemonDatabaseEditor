@@ -422,7 +422,14 @@ namespace Pokemon_Unity_Database_Creator
             }
             if (Pokemon.EvolutionLevel != "")
             {
-                evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+                try
+                {
+                    evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Evolutions other than Level haven't been implemented yet.");
+                }
             }
             else
             {

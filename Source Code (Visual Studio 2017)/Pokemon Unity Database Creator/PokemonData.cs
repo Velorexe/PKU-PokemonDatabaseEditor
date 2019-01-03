@@ -158,7 +158,7 @@ namespace Pokemon_Unity_Database_Creator
             {
                 Result = "null";
             }
-            return Ability;
+            return Result;
         }
 
         public override string ToString()
