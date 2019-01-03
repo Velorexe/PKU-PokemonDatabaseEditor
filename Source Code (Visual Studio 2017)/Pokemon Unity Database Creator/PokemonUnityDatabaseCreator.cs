@@ -43,11 +43,6 @@ namespace Pokemon_Unity_Database_Creator
             ((DataGridViewTextBoxColumn)levelMovesGrid.Columns["Level"]).MaxInputLength = 3;
         }
 
-        private void PokemonUnityDatabaseCreator_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void FillLists()
         {
             //Clearing Lists
@@ -238,6 +233,7 @@ namespace Pokemon_Unity_Database_Creator
             TempPokemon = FillPokemonData(currentPokemonIndex);
 
             bool Duplicate = false;
+
             int PokeIndex = 0;
             string PokeName = "";
 
@@ -491,6 +487,11 @@ namespace Pokemon_Unity_Database_Creator
 
         private void SpriteButton_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                FileName = "Icon",
+                Filter = "GIF Files|*.gif"
+            };
             DialogResult result = openFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
