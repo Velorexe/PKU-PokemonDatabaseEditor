@@ -332,7 +332,7 @@ namespace Pokemon_Unity_Database_Creator
             {
                 if (databaseNavigationID.SelectedValue != null)
                 {
-                    if (databaseNavigationID.SelectedValue.ToString() == Pokemon.PokedexID.ToString())
+                    if (databaseNavigationID.SelectedItem == Pokemon)
                     {
                         currentPokemonIndex = i;
                         RefillPokemonData(Pokemon);
