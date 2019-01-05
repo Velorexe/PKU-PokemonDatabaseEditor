@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprite.cs" />
     <Compile Include="SpriteSetup.cs">
       <SubType>Form</SubType>
     </Compile>

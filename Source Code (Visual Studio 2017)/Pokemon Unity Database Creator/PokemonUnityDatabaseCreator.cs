@@ -35,6 +35,9 @@ namespace Pokemon_Unity_Database_Creator
         public int currentPokemonIndex = 0;
         public PokemonData currentPokemon = new PokemonData();
 
+        //Sprite Window
+        private SpriteSetup SpriteSetupWindow;
+
         public PokemonUnityDatabaseCreator()
         {
             InitializeComponent();
@@ -489,29 +492,26 @@ namespace Pokemon_Unity_Database_Creator
                 tmAndHMGrid.Rows[j].Cells[0].Value = Move;
                 j++;
             }
+
+            if(null != SpriteSetupWindow)
+            {
+                SpriteSetupWindow.SetPokemon(Pokemon);
+            }
         }
 
         private void SpriteButton_Click(object sender, EventArgs e)
         {
-            if (pokemons.Count > 0)
+            if (pokemons.Count > 0 && null == SpriteSetupWindow)
             {
-                SpriteSetup spriteSetup = new SpriteSetup(pokemons[currentPokemonIndex]);
-                spriteSetup.Show();
+                SpriteSetupWindow = new SpriteSetup(pokemons[currentPokemonIndex], this);
+                SpriteSetupWindow.Show();
+
+                spriteButton.Enabled = false;
             }
             else
             {
                 MessageBox.Show("You haven't added any Pokemon.");
             }
-            /*OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                FileName = "Icon",
-                Filter = "GIF Files|*.gif"
-            };
-            DialogResult result = openFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                GetPokemonGIFIcon(openFileDialog.FileName);
-            }*/
         }
 
         public TimeSpan GetGifDuration(Image image, int fps = 60)
