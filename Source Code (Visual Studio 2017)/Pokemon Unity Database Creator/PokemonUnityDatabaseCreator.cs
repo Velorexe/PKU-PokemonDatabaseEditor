@@ -39,16 +39,11 @@ namespace Pokemon_Unity_Database_Creator
         {
             InitializeComponent();
             FillLists();
-            pokemons.Add(currentPokemon);
+            //pokemons.Add(currentPokemon);
             ((DataGridViewTextBoxColumn)levelMovesGrid.Columns["Level"]).MaxInputLength = 3;
         }
 
         private void PokemonUnityDatabaseCreator_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -112,6 +107,11 @@ namespace Pokemon_Unity_Database_Creator
 
         public PokemonData FillPokemonData(int Index)
         {
+            if(pokemons.Count == 0)
+            {
+                PokemonData NullPokemon = new PokemonData();
+                pokemons.Add(NullPokemon);
+            }
             PokemonData Pokemon = pokemons[Index];
 
             //Pokemon Info
@@ -144,8 +144,14 @@ namespace Pokemon_Unity_Database_Creator
             Pokemon.Species = speciesTextBox.Text;
             Pokemon.BaseFriendship = baseFriendship.Value.ToString();
             Pokemon.PokedexEntry = pokedexEntry.Text;
-            Pokemon.EvolutionID = evolutionID.Value.ToString();
-            Pokemon.EvolutionLevel = evolutionLevel.Value.ToString();
+            if(evolutionID.Value != 0)
+            {
+                Pokemon.EvolutionID = evolutionID.Value.ToString();
+            }
+            if (evolutionLevel.Value != 0)
+            {
+                Pokemon.EvolutionLevel = evolutionLevel.Value.ToString();
+            }
 
             //Pokemon Unity Extra's
             Pokemon.Luminance = (float)luminance.Value;
@@ -184,23 +190,29 @@ namespace Pokemon_Unity_Database_Creator
                 {
                     if (levelMovesGrid.Rows[i].Cells["Move"].Value == null && levelMovesGrid.Rows[i].Cells["Level"].Value != null)
                     {
-                        LevelMove tempLevelMove = new LevelMove();
-                        tempLevelMove.Move = "???";
-                        tempLevelMove.Level = (int)levelMovesGrid.Rows[i].Cells["Level"].Value;
+                        LevelMove tempLevelMove = new LevelMove
+                        {
+                            Move = "???",
+                            Level = (int)levelMovesGrid.Rows[i].Cells["Level"].Value
+                        };
                         Pokemon.LevelMoves.Add(tempLevelMove);
                     }
                     else if (levelMovesGrid.Rows[i].Cells["Move"].Value != null && levelMovesGrid.Rows[i].Cells["Level"].Value == null)
                     {
-                        LevelMove tempLevelMove = new LevelMove();
-                        tempLevelMove.Move = levelMovesGrid.Rows[i].Cells["Move"].Value.ToString();
-                        tempLevelMove.Level = 999;
+                        LevelMove tempLevelMove = new LevelMove
+                        {
+                            Move = levelMovesGrid.Rows[i].Cells["Move"].Value.ToString(),
+                            Level = 999
+                        };
                         Pokemon.LevelMoves.Add(tempLevelMove);
                     }
                     else
                     {
-                        LevelMove tempLevelMove = new LevelMove();
-                        tempLevelMove.Move = levelMovesGrid.Rows[i].Cells["Move"].Value.ToString();
-                        tempLevelMove.Level = Convert.ToInt32(levelMovesGrid.Rows[i].Cells["Level"].Value);
+                        LevelMove tempLevelMove = new LevelMove
+                        {
+                            Move = levelMovesGrid.Rows[i].Cells["Move"].Value.ToString(),
+                            Level = Convert.ToInt32(levelMovesGrid.Rows[i].Cells["Level"].Value)
+                        };
                         Pokemon.LevelMoves.Add(tempLevelMove);
                     }
                     i++;
@@ -220,7 +232,7 @@ namespace Pokemon_Unity_Database_Creator
             return Pokemon;
         }
 
-        private void addPokemon_Click(object sender, EventArgs e)
+        private void AddPokemon_Click(object sender, EventArgs e)
         {
             PokemonData TempPokemon = new PokemonData();
             TempPokemon = FillPokemonData(currentPokemonIndex);
@@ -246,14 +258,7 @@ namespace Pokemon_Unity_Database_Creator
                 pokemons.Clear();
                 pokemons = OrderList;
 
-                mainBindingSource.Clear();
-                mainBindingSource.DataSource = pokemons;
-                databaseNavigationName.DataSource = mainBindingSource.DataSource;
-                databaseNavigationID.DataSource = mainBindingSource.DataSource;
-                databaseNavigationName.DisplayMember = "Name";
-                databaseNavigationName.ValueMember = "Name";
-                databaseNavigationID.DisplayMember = "PokedexID";
-                databaseNavigationID.ValueMember = "PokedexID";
+                BindingSource();
             }
             else
             {
@@ -261,7 +266,7 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void lightColor_SelectedIndexChanged(object sender, EventArgs e)
+        private void LightColor_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lightColor.Text != "")
             {
@@ -276,7 +281,7 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void pokedexColor_SelectedIndexChanged(object sender, EventArgs e)
+        private void PokedexColor_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (pokedexColor.Text != "")
             {
@@ -284,11 +289,13 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.FileName = "PokemonDatabase.xml";
-            save.Filter = "XML Files|*.xml";
+            SaveFileDialog save = new SaveFileDialog
+            {
+                FileName = "PokemonDatabase.xml",
+                Filter = "XML Files|*.xml"
+            };
             if (save.ShowDialog() == DialogResult.OK)
             {
                 FillPokemonData(currentPokemonIndex);
@@ -299,7 +306,7 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.FileName = "PokemonDatabase.xml";
             openFileDialog.Filter = "XML Files|*.xml";
@@ -318,14 +325,14 @@ namespace Pokemon_Unity_Database_Creator
             openFileDialog.Filter = "";
         }
 
-        private void databaseNavigationID_SelectedIndexChanged(object sender, EventArgs e)
+        private void DatabaseNavigationID_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = 0;
             foreach (PokemonData Pokemon in pokemons)
             {
                 if (databaseNavigationID.SelectedValue != null)
                 {
-                    if (databaseNavigationID.SelectedValue.ToString() == Pokemon.PokedexID.ToString())
+                    if (databaseNavigationID.SelectedItem == Pokemon)
                     {
                         currentPokemonIndex = i;
                         RefillPokemonData(Pokemon);
@@ -356,22 +363,44 @@ namespace Pokemon_Unity_Database_Creator
             //Pokemon Info
             if (Pokemon.Sprite != null)
             {
-                getPokemonGIFIcon(Pokemon.Sprite);
+                GetPokemonGIFIcon(Pokemon.Sprite);
             }
             nameTextBox.Text = Pokemon.Name;
             pokedexID.Text = Pokemon.PokedexID.ToString();
             pokemonType1.Text = Pokemon.Type1;
             pokemonType2.Text = Pokemon.Type2;
             pokemonAbility1.Text = Pokemon.Ability1;
-            pokemonAbility2.Text = Pokemon.Ability2;
+            if(Pokemon.Ability2 == "null" && Pokemon.Ability2 == null)
+            {
+                pokemonAbility2.Text = "None";
+            }
+            else
+            {
+                pokemonAbility2.Text = Pokemon.Ability2;
+            }
             pokemonHiddenAbility.Text = Pokemon.HiddenAbility;
 
             //Egg Groups
             pokemonEggGroup1.Text = Pokemon.EggGroup1;
-            pokemonEggGroup2.Text = Pokemon.EggGroup2;
+            if (Pokemon.EggGroup2 == Pokemon.EggGroup2 && Pokemon.EggGroup1 != "")
+            {
+                pokemonEggGroup2.Text = "None";
+            }
+            else
+            {
+                pokemonEggGroup2.Text = Pokemon.EggGroup2;
+            }
 
             //Ratio's and Value's
-            maleRatio.Value = (decimal)Pokemon.MaleRatio;
+            if ((decimal)Pokemon.MaleRatio > maleRatio.Maximum)
+            {
+                genderlessBox.Checked = true;
+            }
+            else
+            {
+                genderlessBox.Checked = false;
+                maleRatio.Value = (decimal)Pokemon.MaleRatio;
+            }
             catchRate.Value = (decimal)Pokemon.CatchRate;
             hatchTime.Value = (decimal)Pokemon.HatchTime;
             levelingRate.Text = Pokemon.LevelingRate;
@@ -383,8 +412,29 @@ namespace Pokemon_Unity_Database_Creator
             speciesTextBox.Text = Pokemon.Species;
             baseFriendship.Value = Convert.ToInt32(Pokemon.BaseFriendship);
             pokedexEntry.Text = Pokemon.PokedexEntry;
-            evolutionID.Value = Convert.ToInt32(Pokemon.EvolutionID);
-            evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+            if (Pokemon.EvolutionID != "")
+            {
+                evolutionID.Value = Convert.ToInt32(Pokemon.EvolutionID);
+            }
+            else
+            {
+                evolutionID.Value = 0;
+            }
+            if (Pokemon.EvolutionLevel != "")
+            {
+                try
+                {
+                    evolutionLevel.Value = Convert.ToInt32(Pokemon.EvolutionLevel);
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Evolutions other than Level haven't been implemented yet.");
+                }
+            }
+            else
+            {
+                evolutionLevel.Value = 0;
+            }
 
             //Pokemon Unity Extra's
             luminance.Value = (decimal)Pokemon.Luminance;
@@ -446,12 +496,12 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void spriteButton_Click(object sender, EventArgs e)
+        private void SpriteButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                getPokemonGIFIcon(openFileDialog.FileName);
+                GetPokemonGIFIcon(openFileDialog.FileName);
             }
         }
 
@@ -474,23 +524,24 @@ namespace Pokemon_Unity_Database_Creator
             return TimeSpan.FromMilliseconds(totalDuration);
         }
 
-        public void getPokemonGIFIcon(string gifPath)
+        public void GetPokemonGIFIcon(string gifPath)
         {
             pokemonIcon.Tag = gifPath;
             GIFName = Path.GetFileName(gifPath);
             GIF = Image.FromFile(gifPath);
-            gif = new GifImage(gifPath);
-            gif.ReverseAtEnd = false;
+            gif = new GifImage(gifPath)
+            {
+                ReverseAtEnd = false
+            };
             pokemonIcon.Image = gif.GetNextFrame();
         }
 
-        private void levelMovesGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void LevelMovesGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
             if (levelMovesGrid.CurrentCell.ColumnIndex == 1)
             {
-                TextBox tb = e.Control as TextBox;
-                if (tb != null)
+                if (e.Control is TextBox tb)
                 {
                     tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
                 }
@@ -505,18 +556,20 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void saveCurrentPokemon_Click(object sender, EventArgs e)
+        private void SaveCurrentPokemon_Click(object sender, EventArgs e)
         {
             FillPokemonData(currentPokemonIndex);
             BindingSource();
         }
 
-        private void newPokemon_Click(object sender, EventArgs e)
+        private void NewPokemon_Click(object sender, EventArgs e)
         {
-            FillPokemonData(currentPokemonIndex);
+            if (pokemons.Count != 0)
+            {
+                FillPokemonData(currentPokemonIndex);
+            }
             PokemonData TempPokemon = new PokemonData();
-            TempPokemon.PokedexID = "???";
-            TempPokemon.Name = "???";
+            TempPokemon.CreateEmtpy();
             pokemons.Add(TempPokemon);
             currentPokemonIndex = pokemons.Count() - 1;
             BindingSource();
@@ -550,7 +603,7 @@ namespace Pokemon_Unity_Database_Creator
             pokemonIcon.Image = Pokemon_Unity_Database_Creator.Properties.Resources.Unknown;
         }
 
-        private void tmAndHMGrid_KeyDown(object sender, KeyEventArgs e)
+        private void TmAndHMGrid_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -647,9 +700,35 @@ namespace Pokemon_Unity_Database_Creator
             }
         }
 
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new DatabaseExporter(pokemons);
+            if (pokemons.Count > 0)
+            {
+                new DatabaseExporter(pokemons);
+            }
+            else
+            {
+                MessageBox.Show("The database you tried to export is empty. Are you sure that you saved the Pokemons into the database?");
+            }
+        }
+
+        private void ImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadingScreen load = new LoadingScreen();
+            pokemons.Clear();
+            pokemons = load.ImportDatabase();
+            BindingSource();
+            if(pokemons.Count > 0)
+            {
+                RefillPokemonData(pokemons[0]);
+            }
+            load.Hide();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveToolStripMenuItem_Click(sender, e);
+            Application.Exit();
         }
     }
 }

@@ -13,3 +13,36 @@ C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Databas
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
 C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
+C:\Users\dvddv\source\repos\Pokemon Unity Database Creator\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.LoadingScreen.resources
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe.config
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csprojResolveAssemblyReference.cache
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.LoadingScreen.resources
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.PokemonUnityDatabaseCreator.resources
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.Properties.Resources.resources
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.GenerateResource.cache
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CoreCompileInputs.cache
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.exe
+C:\Users\dvddv\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe.config
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.exe
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Pokemon Unity Database Creator.pdb
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csprojAssemblyReference.cache
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.LoadingScreen.resources
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.PokemonUnityDatabaseCreator.resources
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon_Unity_Database_Creator.Properties.Resources.resources
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.GenerateResource.cache
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CoreCompileInputs.cache
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.csproj.CopyComplete
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.exe
+C:\Users\David Blerkselmans\Desktop\PKU-PokemonDatabaseEditor\Source Code (Visual Studio 2017)\Pokemon Unity Database Creator\obj\Debug\Pokemon Unity Database Creator.pdb

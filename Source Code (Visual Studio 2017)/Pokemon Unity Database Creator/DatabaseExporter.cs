@@ -20,10 +20,10 @@ namespace Pokemon_Unity_Database_Creator
         public DatabaseExporter(List<PokemonData> Pokemons)
         {
             string PokemonDatabase = "";
-            foreach(PokemonData Pokemon in Pokemons)
+            foreach (PokemonData Pokemon in Pokemons)
             {
-                PokemonDatabase = PokemonDatabase + Pokemon.ToString() + "\n";
-                if(PokemonDatabase != "")
+                PokemonDatabase = PokemonDatabase + Pokemon.ToString() + "\n\n";
+                if (PokemonDatabase != "")
                 {
                     PokemonDatabase = PokemonDatabase.Remove(PokemonDatabase.Length - 1);
                 }

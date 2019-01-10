@@ -50,8 +50,7 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pokemonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pokemonEggGroupGroup = new System.Windows.Forms.GroupBox();
@@ -60,6 +59,7 @@
             this.pokemonEggGroup1 = new System.Windows.Forms.ComboBox();
             this.pokemonEggGroupLabel1 = new System.Windows.Forms.Label();
             this.pokemonRatioGroup = new System.Windows.Forms.GroupBox();
+            this.genderlessBox = new System.Windows.Forms.CheckBox();
             this.hatchTimeInfoLabel = new System.Windows.Forms.Label();
             this.levelingRate = new System.Windows.Forms.ComboBox();
             this.levelingRateLabel = new System.Windows.Forms.Label();
@@ -70,6 +70,16 @@
             this.maleRatio = new System.Windows.Forms.NumericUpDown();
             this.maleRatioLabel = new System.Windows.Forms.Label();
             this.pokemonPokedexGroup = new System.Windows.Forms.GroupBox();
+            this.baseFriendship = new System.Windows.Forms.NumericUpDown();
+            this.baseFriendshipLabel = new System.Windows.Forms.Label();
+            this.evolutionItem = new System.Windows.Forms.ComboBox();
+            this.evolutionItemLabel = new System.Windows.Forms.Label();
+            this.evolutionLevel = new System.Windows.Forms.NumericUpDown();
+            this.evolutionLevelLabel = new System.Windows.Forms.Label();
+            this.evolutionMethodLabel = new System.Windows.Forms.Label();
+            this.evolutionMethod = new System.Windows.Forms.ComboBox();
+            this.evolutionID = new System.Windows.Forms.NumericUpDown();
+            this.evolutionLabel = new System.Windows.Forms.Label();
             this.pokedexColorExample = new System.Windows.Forms.TextBox();
             this.speciesTextBox = new System.Windows.Forms.TextBox();
             this.speciesLabel = new System.Windows.Forms.Label();
@@ -135,16 +145,6 @@
             this.spriteTypeBox = new System.Windows.Forms.ComboBox();
             this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.evolutionLabel = new System.Windows.Forms.Label();
-            this.evolutionID = new System.Windows.Forms.NumericUpDown();
-            this.evolutionMethod = new System.Windows.Forms.ComboBox();
-            this.evolutionMethodLabel = new System.Windows.Forms.Label();
-            this.evolutionLevelLabel = new System.Windows.Forms.Label();
-            this.evolutionLevel = new System.Windows.Forms.NumericUpDown();
-            this.evolutionItemLabel = new System.Windows.Forms.Label();
-            this.evolutionItem = new System.Windows.Forms.ComboBox();
-            this.baseFriendshipLabel = new System.Windows.Forms.Label();
-            this.baseFriendship = new System.Windows.Forms.NumericUpDown();
             this.pokemonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pokedexID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonIcon)).BeginInit();
@@ -155,6 +155,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.catchRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maleRatio)).BeginInit();
             this.pokemonPokedexGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baseFriendship)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evolutionLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evolutionID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.height)).BeginInit();
             this.statsBaseStats.SuspendLayout();
@@ -181,9 +184,6 @@
             this.navigationBox.SuspendLayout();
             this.spriteGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.evolutionID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.evolutionLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFriendship)).BeginInit();
             this.SuspendLayout();
             // 
             // pokemonGroup
@@ -610,6 +610,7 @@
             "Natural Cure",
             "Neuroforce",
             "No Guard",
+            "None",
             "Normalize",
             "Oblivious",
             "Overcoat",
@@ -1088,12 +1089,12 @@
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.pokemonToolStripMenuItem,
+            this.importToolStripMenuItem,
             this.exportToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(923, 24);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1001, 24);
             this.mainMenuStrip.TabIndex = 2;
             this.mainMenuStrip.Text = "Main Menu";
             // 
@@ -1119,42 +1120,35 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // pokemonToolStripMenuItem
+            // importToolStripMenuItem
             // 
-            this.pokemonToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem});
-            this.pokemonToolStripMenuItem.Name = "pokemonToolStripMenuItem";
-            this.pokemonToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.pokemonToolStripMenuItem.Text = "Pokemon";
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.addToolStripMenuItem.Text = "Add";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.exportToolStripMenuItem.Text = "Export";
-            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1253,6 +1247,7 @@
             // 
             // pokemonRatioGroup
             // 
+            this.pokemonRatioGroup.Controls.Add(this.genderlessBox);
             this.pokemonRatioGroup.Controls.Add(this.hatchTimeInfoLabel);
             this.pokemonRatioGroup.Controls.Add(this.levelingRate);
             this.pokemonRatioGroup.Controls.Add(this.levelingRateLabel);
@@ -1262,17 +1257,27 @@
             this.pokemonRatioGroup.Controls.Add(this.catchRateLabel);
             this.pokemonRatioGroup.Controls.Add(this.maleRatio);
             this.pokemonRatioGroup.Controls.Add(this.maleRatioLabel);
-            this.pokemonRatioGroup.Location = new System.Drawing.Point(231, 28);
+            this.pokemonRatioGroup.Location = new System.Drawing.Point(231, 27);
             this.pokemonRatioGroup.Name = "pokemonRatioGroup";
-            this.pokemonRatioGroup.Size = new System.Drawing.Size(241, 101);
+            this.pokemonRatioGroup.Size = new System.Drawing.Size(241, 132);
             this.pokemonRatioGroup.TabIndex = 5;
             this.pokemonRatioGroup.TabStop = false;
             this.pokemonRatioGroup.Text = "Ratio\'s and Value\'s";
             // 
+            // genderlessBox
+            // 
+            this.genderlessBox.AutoSize = true;
+            this.genderlessBox.Location = new System.Drawing.Point(155, 21);
+            this.genderlessBox.Name = "genderlessBox";
+            this.genderlessBox.Size = new System.Drawing.Size(79, 17);
+            this.genderlessBox.TabIndex = 10;
+            this.genderlessBox.Text = "Genderless";
+            this.genderlessBox.UseVisualStyleBackColor = true;
+            // 
             // hatchTimeInfoLabel
             // 
             this.hatchTimeInfoLabel.AutoSize = true;
-            this.hatchTimeInfoLabel.Location = new System.Drawing.Point(190, 48);
+            this.hatchTimeInfoLabel.Location = new System.Drawing.Point(182, 74);
             this.hatchTimeInfoLabel.Name = "hatchTimeInfoLabel";
             this.hatchTimeInfoLabel.Size = new System.Drawing.Size(40, 13);
             this.hatchTimeInfoLabel.TabIndex = 9;
@@ -1291,7 +1296,7 @@
             "Medium Fast",
             "Medium Slow",
             "Slow"});
-            this.levelingRate.Location = new System.Drawing.Point(88, 71);
+            this.levelingRate.Location = new System.Drawing.Point(88, 98);
             this.levelingRate.Name = "levelingRate";
             this.levelingRate.Size = new System.Drawing.Size(146, 21);
             this.levelingRate.Sorted = true;
@@ -1300,7 +1305,7 @@
             // levelingRateLabel
             // 
             this.levelingRateLabel.AutoSize = true;
-            this.levelingRateLabel.Location = new System.Drawing.Point(6, 74);
+            this.levelingRateLabel.Location = new System.Drawing.Point(6, 101);
             this.levelingRateLabel.Name = "levelingRateLabel";
             this.levelingRateLabel.Size = new System.Drawing.Size(76, 13);
             this.levelingRateLabel.TabIndex = 6;
@@ -1308,20 +1313,20 @@
             // 
             // hatchTime
             // 
-            this.hatchTime.Location = new System.Drawing.Point(73, 46);
+            this.hatchTime.Location = new System.Drawing.Point(73, 72);
             this.hatchTime.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.hatchTime.Name = "hatchTime";
-            this.hatchTime.Size = new System.Drawing.Size(114, 20);
+            this.hatchTime.Size = new System.Drawing.Size(103, 20);
             this.hatchTime.TabIndex = 5;
             // 
             // hatchTimeLabel
             // 
             this.hatchTimeLabel.AutoSize = true;
-            this.hatchTimeLabel.Location = new System.Drawing.Point(6, 48);
+            this.hatchTimeLabel.Location = new System.Drawing.Point(6, 74);
             this.hatchTimeLabel.Name = "hatchTimeLabel";
             this.hatchTimeLabel.Size = new System.Drawing.Size(65, 13);
             this.hatchTimeLabel.TabIndex = 4;
@@ -1330,20 +1335,20 @@
             // catchRate
             // 
             this.catchRate.DecimalPlaces = 1;
-            this.catchRate.Location = new System.Drawing.Point(190, 20);
+            this.catchRate.Location = new System.Drawing.Point(73, 46);
             this.catchRate.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.catchRate.Name = "catchRate";
-            this.catchRate.Size = new System.Drawing.Size(44, 20);
+            this.catchRate.Size = new System.Drawing.Size(103, 20);
             this.catchRate.TabIndex = 3;
             // 
             // catchRateLabel
             // 
             this.catchRateLabel.AutoSize = true;
-            this.catchRateLabel.Location = new System.Drawing.Point(123, 22);
+            this.catchRateLabel.Location = new System.Drawing.Point(7, 48);
             this.catchRateLabel.Name = "catchRateLabel";
             this.catchRateLabel.Size = new System.Drawing.Size(64, 13);
             this.catchRateLabel.TabIndex = 2;
@@ -1354,7 +1359,7 @@
             this.maleRatio.DecimalPlaces = 1;
             this.maleRatio.Location = new System.Drawing.Point(73, 20);
             this.maleRatio.Name = "maleRatio";
-            this.maleRatio.Size = new System.Drawing.Size(44, 20);
+            this.maleRatio.Size = new System.Drawing.Size(76, 20);
             this.maleRatio.TabIndex = 1;
             // 
             // maleRatioLabel
@@ -1389,15 +1394,114 @@
             this.pokemonPokedexGroup.Controls.Add(this.weight);
             this.pokemonPokedexGroup.Controls.Add(this.height);
             this.pokemonPokedexGroup.Controls.Add(this.heightLabel);
-            this.pokemonPokedexGroup.Location = new System.Drawing.Point(231, 134);
+            this.pokemonPokedexGroup.Location = new System.Drawing.Point(231, 165);
             this.pokemonPokedexGroup.Name = "pokemonPokedexGroup";
-            this.pokemonPokedexGroup.Size = new System.Drawing.Size(241, 286);
+            this.pokemonPokedexGroup.Size = new System.Drawing.Size(241, 340);
             this.pokemonPokedexGroup.TabIndex = 6;
             this.pokemonPokedexGroup.TabStop = false;
             this.pokemonPokedexGroup.Text = "Pokedex Info";
             // 
+            // baseFriendship
+            // 
+            this.baseFriendship.Location = new System.Drawing.Point(97, 97);
+            this.baseFriendship.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.baseFriendship.Name = "baseFriendship";
+            this.baseFriendship.Size = new System.Drawing.Size(141, 20);
+            this.baseFriendship.TabIndex = 31;
+            // 
+            // baseFriendshipLabel
+            // 
+            this.baseFriendshipLabel.AutoSize = true;
+            this.baseFriendshipLabel.Location = new System.Drawing.Point(6, 99);
+            this.baseFriendshipLabel.Name = "baseFriendshipLabel";
+            this.baseFriendshipLabel.Size = new System.Drawing.Size(85, 13);
+            this.baseFriendshipLabel.TabIndex = 30;
+            this.baseFriendshipLabel.Text = "Base Friendship:";
+            // 
+            // evolutionItem
+            // 
+            this.evolutionItem.Enabled = false;
+            this.evolutionItem.FormattingEnabled = true;
+            this.evolutionItem.Location = new System.Drawing.Point(127, 308);
+            this.evolutionItem.Name = "evolutionItem";
+            this.evolutionItem.Size = new System.Drawing.Size(108, 21);
+            this.evolutionItem.TabIndex = 29;
+            // 
+            // evolutionItemLabel
+            // 
+            this.evolutionItemLabel.AutoSize = true;
+            this.evolutionItemLabel.Location = new System.Drawing.Point(91, 311);
+            this.evolutionItemLabel.Name = "evolutionItemLabel";
+            this.evolutionItemLabel.Size = new System.Drawing.Size(30, 13);
+            this.evolutionItemLabel.TabIndex = 28;
+            this.evolutionItemLabel.Text = "Item:";
+            // 
+            // evolutionLevel
+            // 
+            this.evolutionLevel.Location = new System.Drawing.Point(45, 309);
+            this.evolutionLevel.Name = "evolutionLevel";
+            this.evolutionLevel.Size = new System.Drawing.Size(40, 20);
+            this.evolutionLevel.TabIndex = 27;
+            // 
+            // evolutionLevelLabel
+            // 
+            this.evolutionLevelLabel.AutoSize = true;
+            this.evolutionLevelLabel.Location = new System.Drawing.Point(3, 313);
+            this.evolutionLevelLabel.Name = "evolutionLevelLabel";
+            this.evolutionLevelLabel.Size = new System.Drawing.Size(36, 13);
+            this.evolutionLevelLabel.TabIndex = 26;
+            this.evolutionLevelLabel.Text = "Level:";
+            // 
+            // evolutionMethodLabel
+            // 
+            this.evolutionMethodLabel.AutoSize = true;
+            this.evolutionMethodLabel.Location = new System.Drawing.Point(4, 284);
+            this.evolutionMethodLabel.Name = "evolutionMethodLabel";
+            this.evolutionMethodLabel.Size = new System.Drawing.Size(93, 13);
+            this.evolutionMethodLabel.TabIndex = 25;
+            this.evolutionMethodLabel.Text = "Evolution Method:";
+            // 
+            // evolutionMethod
+            // 
+            this.evolutionMethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.evolutionMethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.evolutionMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.evolutionMethod.FormattingEnabled = true;
+            this.evolutionMethod.Items.AddRange(new object[] {
+            "Level"});
+            this.evolutionMethod.Location = new System.Drawing.Point(106, 281);
+            this.evolutionMethod.Name = "evolutionMethod";
+            this.evolutionMethod.Size = new System.Drawing.Size(129, 21);
+            this.evolutionMethod.TabIndex = 24;
+            // 
+            // evolutionID
+            // 
+            this.evolutionID.Location = new System.Drawing.Point(79, 255);
+            this.evolutionID.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.evolutionID.Name = "evolutionID";
+            this.evolutionID.Size = new System.Drawing.Size(159, 20);
+            this.evolutionID.TabIndex = 23;
+            // 
+            // evolutionLabel
+            // 
+            this.evolutionLabel.AutoSize = true;
+            this.evolutionLabel.Location = new System.Drawing.Point(4, 257);
+            this.evolutionLabel.Name = "evolutionLabel";
+            this.evolutionLabel.Size = new System.Drawing.Size(68, 13);
+            this.evolutionLabel.TabIndex = 22;
+            this.evolutionLabel.Text = "Evolution ID:";
+            // 
             // pokedexColorExample
             // 
+            this.pokedexColorExample.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pokedexColorExample.ForeColor = System.Drawing.Color.Transparent;
             this.pokedexColorExample.Location = new System.Drawing.Point(212, 45);
             this.pokedexColorExample.Name = "pokedexColorExample";
@@ -1443,7 +1547,7 @@
             this.pokedexColor.Size = new System.Drawing.Size(115, 21);
             this.pokedexColor.Sorted = true;
             this.pokedexColor.TabIndex = 7;
-            this.pokedexColor.SelectedIndexChanged += new System.EventHandler(this.pokedexColor_SelectedIndexChanged);
+            this.pokedexColor.SelectedIndexChanged += new System.EventHandler(this.PokedexColor_SelectedIndexChanged);
             // 
             // pokedexColorLabel
             // 
@@ -1467,7 +1571,7 @@
             // 
             this.pokedexEntry.Location = new System.Drawing.Point(6, 138);
             this.pokedexEntry.Name = "pokedexEntry";
-            this.pokedexEntry.Size = new System.Drawing.Size(228, 53);
+            this.pokedexEntry.Size = new System.Drawing.Size(228, 113);
             this.pokedexEntry.TabIndex = 4;
             this.pokedexEntry.Text = "";
             // 
@@ -1484,6 +1588,11 @@
             // 
             this.weight.DecimalPlaces = 1;
             this.weight.Location = new System.Drawing.Point(182, 20);
+            this.weight.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
             this.weight.Name = "weight";
             this.weight.Size = new System.Drawing.Size(52, 20);
             this.weight.TabIndex = 2;
@@ -1492,6 +1601,11 @@
             // 
             this.height.DecimalPlaces = 1;
             this.height.Location = new System.Drawing.Point(63, 18);
+            this.height.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(45, 20);
             this.height.TabIndex = 1;
@@ -1519,9 +1633,9 @@
             this.statsBaseStats.Controls.Add(this.statsBaseSpecialAttackLabel);
             this.statsBaseStats.Controls.Add(this.statsBaseDefenseLabel);
             this.statsBaseStats.Controls.Add(this.statsBaseAttackLabel);
-            this.statsBaseStats.Location = new System.Drawing.Point(479, 28);
+            this.statsBaseStats.Location = new System.Drawing.Point(478, 27);
             this.statsBaseStats.Name = "statsBaseStats";
-            this.statsBaseStats.Size = new System.Drawing.Size(172, 183);
+            this.statsBaseStats.Size = new System.Drawing.Size(238, 183);
             this.statsBaseStats.TabIndex = 4;
             this.statsBaseStats.TabStop = false;
             this.statsBaseStats.Text = "Base Stats";
@@ -1668,9 +1782,9 @@
             this.statsYieldGroup.Controls.Add(this.statsYieldDefenseLabel);
             this.statsYieldGroup.Controls.Add(this.statsYieldSpecialAttackLabel);
             this.statsYieldGroup.Controls.Add(this.statsYieldSpecialDefenseLabel);
-            this.statsYieldGroup.Location = new System.Drawing.Point(479, 218);
+            this.statsYieldGroup.Location = new System.Drawing.Point(478, 216);
             this.statsYieldGroup.Name = "statsYieldGroup";
-            this.statsYieldGroup.Size = new System.Drawing.Size(172, 202);
+            this.statsYieldGroup.Size = new System.Drawing.Size(238, 223);
             this.statsYieldGroup.TabIndex = 5;
             this.statsYieldGroup.TabStop = false;
             this.statsYieldGroup.Text = "Yield Stats";
@@ -1679,7 +1793,7 @@
             // 
             this.statsYieldExp.Location = new System.Drawing.Point(61, 179);
             this.statsYieldExp.Maximum = new decimal(new int[] {
-            255,
+            99999,
             0,
             0,
             0});
@@ -1829,7 +1943,7 @@
             this.pokemonUnityExtraGroup.Controls.Add(this.lightColorLabel);
             this.pokemonUnityExtraGroup.Controls.Add(this.luminance);
             this.pokemonUnityExtraGroup.Controls.Add(this.luminanceLabel);
-            this.pokemonUnityExtraGroup.Location = new System.Drawing.Point(231, 426);
+            this.pokemonUnityExtraGroup.Location = new System.Drawing.Point(231, 511);
             this.pokemonUnityExtraGroup.Name = "pokemonUnityExtraGroup";
             this.pokemonUnityExtraGroup.Size = new System.Drawing.Size(241, 79);
             this.pokemonUnityExtraGroup.TabIndex = 7;
@@ -1838,8 +1952,9 @@
             // 
             // lightColorExample
             // 
+            this.lightColorExample.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.lightColorExample.ForeColor = System.Drawing.Color.Transparent;
-            this.lightColorExample.Location = new System.Drawing.Point(211, 48);
+            this.lightColorExample.Location = new System.Drawing.Point(215, 47);
             this.lightColorExample.Name = "lightColorExample";
             this.lightColorExample.ReadOnly = true;
             this.lightColorExample.Size = new System.Drawing.Size(23, 20);
@@ -1864,10 +1979,10 @@
             "Yellow"});
             this.lightColor.Location = new System.Drawing.Point(75, 47);
             this.lightColor.Name = "lightColor";
-            this.lightColor.Size = new System.Drawing.Size(130, 21);
+            this.lightColor.Size = new System.Drawing.Size(131, 21);
             this.lightColor.Sorted = true;
             this.lightColor.TabIndex = 19;
-            this.lightColor.SelectedIndexChanged += new System.EventHandler(this.lightColor_SelectedIndexChanged);
+            this.lightColor.SelectedIndexChanged += new System.EventHandler(this.LightColor_SelectedIndexChanged);
             // 
             // lightColorLabel
             // 
@@ -1893,7 +2008,7 @@
             0,
             0});
             this.luminance.Name = "luminance";
-            this.luminance.Size = new System.Drawing.Size(159, 20);
+            this.luminance.Size = new System.Drawing.Size(163, 20);
             this.luminance.TabIndex = 17;
             // 
             // luminanceLabel
@@ -1916,9 +2031,9 @@
             this.levelMovesGrid.Name = "levelMovesGrid";
             this.levelMovesGrid.RowHeadersVisible = false;
             this.levelMovesGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.levelMovesGrid.Size = new System.Drawing.Size(238, 224);
+            this.levelMovesGrid.Size = new System.Drawing.Size(258, 282);
             this.levelMovesGrid.TabIndex = 8;
-            this.levelMovesGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.levelMovesGrid_EditingControlShowing);
+            this.levelMovesGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.LevelMovesGrid_EditingControlShowing);
             // 
             // Move
             // 
@@ -1933,9 +2048,9 @@
             // levelMovesGroup
             // 
             this.levelMovesGroup.Controls.Add(this.levelMovesGrid);
-            this.levelMovesGroup.Location = new System.Drawing.Point(657, 28);
+            this.levelMovesGroup.Location = new System.Drawing.Point(727, 27);
             this.levelMovesGroup.Name = "levelMovesGroup";
-            this.levelMovesGroup.Size = new System.Drawing.Size(254, 244);
+            this.levelMovesGroup.Size = new System.Drawing.Size(274, 302);
             this.levelMovesGroup.TabIndex = 9;
             this.levelMovesGroup.TabStop = false;
             this.levelMovesGroup.Text = "Level Moves";
@@ -1943,9 +2058,9 @@
             // tmAndHMGroup
             // 
             this.tmAndHMGroup.Controls.Add(this.tmAndHMGrid);
-            this.tmAndHMGroup.Location = new System.Drawing.Point(657, 272);
+            this.tmAndHMGroup.Location = new System.Drawing.Point(727, 335);
             this.tmAndHMGroup.Name = "tmAndHMGroup";
-            this.tmAndHMGroup.Size = new System.Drawing.Size(254, 148);
+            this.tmAndHMGroup.Size = new System.Drawing.Size(268, 255);
             this.tmAndHMGroup.TabIndex = 10;
             this.tmAndHMGroup.TabStop = false;
             this.tmAndHMGroup.Text = "TM\'s and HM\'s";
@@ -1962,9 +2077,9 @@
             this.tmAndHMGrid.Location = new System.Drawing.Point(10, 14);
             this.tmAndHMGrid.Name = "tmAndHMGrid";
             this.tmAndHMGrid.RowHeadersVisible = false;
-            this.tmAndHMGrid.Size = new System.Drawing.Size(238, 128);
+            this.tmAndHMGrid.Size = new System.Drawing.Size(252, 232);
             this.tmAndHMGrid.TabIndex = 8;
-            this.tmAndHMGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tmAndHMGrid_KeyDown);
+            this.tmAndHMGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TmAndHMGrid_KeyDown);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1979,32 +2094,32 @@
             this.navigationBox.Controls.Add(this.addPokemon);
             this.navigationBox.Controls.Add(this.navigationNameLabel);
             this.navigationBox.Controls.Add(this.databaseNavigationName);
-            this.navigationBox.Location = new System.Drawing.Point(657, 426);
+            this.navigationBox.Location = new System.Drawing.Point(478, 443);
             this.navigationBox.Name = "navigationBox";
-            this.navigationBox.Size = new System.Drawing.Size(254, 79);
+            this.navigationBox.Size = new System.Drawing.Size(238, 147);
             this.navigationBox.TabIndex = 11;
             this.navigationBox.TabStop = false;
             this.navigationBox.Text = "Database Navigation";
             // 
             // newPokemon
             // 
-            this.newPokemon.Location = new System.Drawing.Point(179, 50);
+            this.newPokemon.Location = new System.Drawing.Point(10, 115);
             this.newPokemon.Name = "newPokemon";
-            this.newPokemon.Size = new System.Drawing.Size(68, 23);
+            this.newPokemon.Size = new System.Drawing.Size(222, 23);
             this.newPokemon.TabIndex = 8;
-            this.newPokemon.Text = "New";
+            this.newPokemon.Text = "New Empty";
             this.newPokemon.UseVisualStyleBackColor = true;
-            this.newPokemon.Click += new System.EventHandler(this.newPokemon_Click);
+            this.newPokemon.Click += new System.EventHandler(this.NewPokemon_Click);
             // 
             // saveCurrentPokemon
             // 
-            this.saveCurrentPokemon.Location = new System.Drawing.Point(93, 50);
+            this.saveCurrentPokemon.Location = new System.Drawing.Point(10, 86);
             this.saveCurrentPokemon.Name = "saveCurrentPokemon";
-            this.saveCurrentPokemon.Size = new System.Drawing.Size(80, 23);
+            this.saveCurrentPokemon.Size = new System.Drawing.Size(222, 23);
             this.saveCurrentPokemon.TabIndex = 7;
-            this.saveCurrentPokemon.Text = "Save";
+            this.saveCurrentPokemon.Text = "Save Current Pokemon";
             this.saveCurrentPokemon.UseVisualStyleBackColor = true;
-            this.saveCurrentPokemon.Click += new System.EventHandler(this.saveCurrentPokemon_Click);
+            this.saveCurrentPokemon.Click += new System.EventHandler(this.SaveCurrentPokemon_Click);
             // 
             // databaseNavigationID
             // 
@@ -2016,17 +2131,17 @@
             this.databaseNavigationID.Name = "databaseNavigationID";
             this.databaseNavigationID.Size = new System.Drawing.Size(54, 21);
             this.databaseNavigationID.TabIndex = 6;
-            this.databaseNavigationID.SelectedIndexChanged += new System.EventHandler(this.databaseNavigationID_SelectedIndexChanged);
+            this.databaseNavigationID.SelectedIndexChanged += new System.EventHandler(this.DatabaseNavigationID_SelectedIndexChanged);
             // 
             // addPokemon
             // 
-            this.addPokemon.Location = new System.Drawing.Point(10, 48);
+            this.addPokemon.Location = new System.Drawing.Point(10, 57);
             this.addPokemon.Name = "addPokemon";
-            this.addPokemon.Size = new System.Drawing.Size(77, 23);
+            this.addPokemon.Size = new System.Drawing.Size(222, 23);
             this.addPokemon.TabIndex = 5;
-            this.addPokemon.Text = "Add";
+            this.addPokemon.Text = "Add Current Pokemon";
             this.addPokemon.UseVisualStyleBackColor = true;
-            this.addPokemon.Click += new System.EventHandler(this.addPokemon_Click);
+            this.addPokemon.Click += new System.EventHandler(this.AddPokemon_Click);
             // 
             // navigationNameLabel
             // 
@@ -2045,7 +2160,7 @@
             this.databaseNavigationName.FormattingEnabled = true;
             this.databaseNavigationName.Location = new System.Drawing.Point(129, 23);
             this.databaseNavigationName.Name = "databaseNavigationName";
-            this.databaseNavigationName.Size = new System.Drawing.Size(119, 21);
+            this.databaseNavigationName.Size = new System.Drawing.Size(105, 21);
             this.databaseNavigationName.TabIndex = 0;
             // 
             // spriteGroup
@@ -2053,9 +2168,9 @@
             this.spriteGroup.Controls.Add(this.spriteButton);
             this.spriteGroup.Controls.Add(this.spriteLabel);
             this.spriteGroup.Controls.Add(this.spriteTypeBox);
-            this.spriteGroup.Location = new System.Drawing.Point(479, 426);
+            this.spriteGroup.Location = new System.Drawing.Point(12, 511);
             this.spriteGroup.Name = "spriteGroup";
-            this.spriteGroup.Size = new System.Drawing.Size(172, 79);
+            this.spriteGroup.Size = new System.Drawing.Size(213, 79);
             this.spriteGroup.TabIndex = 12;
             this.spriteGroup.TabStop = false;
             this.spriteGroup.Text = "Sprite";
@@ -2064,11 +2179,11 @@
             // 
             this.spriteButton.Location = new System.Drawing.Point(10, 42);
             this.spriteButton.Name = "spriteButton";
-            this.spriteButton.Size = new System.Drawing.Size(156, 23);
+            this.spriteButton.Size = new System.Drawing.Size(196, 23);
             this.spriteButton.TabIndex = 2;
             this.spriteButton.Text = "Open";
             this.spriteButton.UseVisualStyleBackColor = true;
-            this.spriteButton.Click += new System.EventHandler(this.spriteButton_Click);
+            this.spriteButton.Click += new System.EventHandler(this.SpriteButton_Click);
             // 
             // spriteLabel
             // 
@@ -2089,7 +2204,7 @@
             "Spritesheet"});
             this.spriteTypeBox.Location = new System.Drawing.Point(77, 15);
             this.spriteTypeBox.Name = "spriteTypeBox";
-            this.spriteTypeBox.Size = new System.Drawing.Size(89, 21);
+            this.spriteTypeBox.Size = new System.Drawing.Size(128, 21);
             this.spriteTypeBox.Sorted = true;
             this.spriteTypeBox.TabIndex = 0;
             this.spriteTypeBox.Text = "GIF";
@@ -2098,104 +2213,11 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // evolutionLabel
-            // 
-            this.evolutionLabel.AutoSize = true;
-            this.evolutionLabel.Location = new System.Drawing.Point(3, 199);
-            this.evolutionLabel.Name = "evolutionLabel";
-            this.evolutionLabel.Size = new System.Drawing.Size(68, 13);
-            this.evolutionLabel.TabIndex = 22;
-            this.evolutionLabel.Text = "Evolution ID:";
-            // 
-            // evolutionID
-            // 
-            this.evolutionID.Location = new System.Drawing.Point(75, 197);
-            this.evolutionID.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.evolutionID.Name = "evolutionID";
-            this.evolutionID.Size = new System.Drawing.Size(159, 20);
-            this.evolutionID.TabIndex = 23;
-            // 
-            // evolutionMethod
-            // 
-            this.evolutionMethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.evolutionMethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.evolutionMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.evolutionMethod.FormattingEnabled = true;
-            this.evolutionMethod.Items.AddRange(new object[] {
-            "Level"});
-            this.evolutionMethod.Location = new System.Drawing.Point(105, 223);
-            this.evolutionMethod.Name = "evolutionMethod";
-            this.evolutionMethod.Size = new System.Drawing.Size(129, 21);
-            this.evolutionMethod.TabIndex = 24;
-            // 
-            // evolutionMethodLabel
-            // 
-            this.evolutionMethodLabel.AutoSize = true;
-            this.evolutionMethodLabel.Location = new System.Drawing.Point(3, 226);
-            this.evolutionMethodLabel.Name = "evolutionMethodLabel";
-            this.evolutionMethodLabel.Size = new System.Drawing.Size(93, 13);
-            this.evolutionMethodLabel.TabIndex = 25;
-            this.evolutionMethodLabel.Text = "Evolution Method:";
-            // 
-            // evolutionLevelLabel
-            // 
-            this.evolutionLevelLabel.AutoSize = true;
-            this.evolutionLevelLabel.Location = new System.Drawing.Point(3, 254);
-            this.evolutionLevelLabel.Name = "evolutionLevelLabel";
-            this.evolutionLevelLabel.Size = new System.Drawing.Size(36, 13);
-            this.evolutionLevelLabel.TabIndex = 26;
-            this.evolutionLevelLabel.Text = "Level:";
-            // 
-            // evolutionLevel
-            // 
-            this.evolutionLevel.Location = new System.Drawing.Point(45, 250);
-            this.evolutionLevel.Name = "evolutionLevel";
-            this.evolutionLevel.Size = new System.Drawing.Size(40, 20);
-            this.evolutionLevel.TabIndex = 27;
-            // 
-            // evolutionItemLabel
-            // 
-            this.evolutionItemLabel.AutoSize = true;
-            this.evolutionItemLabel.Location = new System.Drawing.Point(91, 254);
-            this.evolutionItemLabel.Name = "evolutionItemLabel";
-            this.evolutionItemLabel.Size = new System.Drawing.Size(30, 13);
-            this.evolutionItemLabel.TabIndex = 28;
-            this.evolutionItemLabel.Text = "Item:";
-            // 
-            // evolutionItem
-            // 
-            this.evolutionItem.Enabled = false;
-            this.evolutionItem.FormattingEnabled = true;
-            this.evolutionItem.Location = new System.Drawing.Point(126, 250);
-            this.evolutionItem.Name = "evolutionItem";
-            this.evolutionItem.Size = new System.Drawing.Size(108, 21);
-            this.evolutionItem.TabIndex = 29;
-            // 
-            // baseFriendshipLabel
-            // 
-            this.baseFriendshipLabel.AutoSize = true;
-            this.baseFriendshipLabel.Location = new System.Drawing.Point(6, 99);
-            this.baseFriendshipLabel.Name = "baseFriendshipLabel";
-            this.baseFriendshipLabel.Size = new System.Drawing.Size(85, 13);
-            this.baseFriendshipLabel.TabIndex = 30;
-            this.baseFriendshipLabel.Text = "Base Friendship:";
-            // 
-            // baseFriendship
-            // 
-            this.baseFriendship.Location = new System.Drawing.Point(97, 97);
-            this.baseFriendship.Name = "baseFriendship";
-            this.baseFriendship.Size = new System.Drawing.Size(141, 20);
-            this.baseFriendship.TabIndex = 31;
-            // 
             // PokemonUnityDatabaseCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 514);
+            this.ClientSize = new System.Drawing.Size(1001, 593);
             this.Controls.Add(this.spriteGroup);
             this.Controls.Add(this.navigationBox);
             this.Controls.Add(this.tmAndHMGroup);
@@ -2231,6 +2253,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.maleRatio)).EndInit();
             this.pokemonPokedexGroup.ResumeLayout(false);
             this.pokemonPokedexGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.baseFriendship)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evolutionLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.evolutionID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.height)).EndInit();
             this.statsBaseStats.ResumeLayout(false);
@@ -2262,9 +2287,6 @@
             this.spriteGroup.ResumeLayout(false);
             this.spriteGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.evolutionID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.evolutionLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseFriendship)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2368,8 +2390,6 @@
         private System.Windows.Forms.Label spriteLabel;
         private System.Windows.Forms.ComboBox spriteTypeBox;
         private System.Windows.Forms.Button spriteButton;
-        private System.Windows.Forms.ToolStripMenuItem pokemonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.Label hatchTimeInfoLabel;
         private System.Windows.Forms.Button addPokemon;
         private System.Windows.Forms.TextBox lightColorExample;
@@ -2389,6 +2409,8 @@
         private System.Windows.Forms.Label evolutionItemLabel;
         private System.Windows.Forms.NumericUpDown baseFriendship;
         private System.Windows.Forms.Label baseFriendshipLabel;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.CheckBox genderlessBox;
     }
 }
 

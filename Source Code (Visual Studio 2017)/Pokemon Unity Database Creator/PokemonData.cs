@@ -38,6 +38,7 @@ namespace Pokemon_Unity_Database_Creator
         public string PokedexEntry { get; set; }
         public string EvolutionID { get; set; }
         public string EvolutionLevel { get; set; }
+        public string EvolutionMethod { get; set; }
 
 
         //Pokemon Unity Extra's
@@ -66,6 +67,28 @@ namespace Pokemon_Unity_Database_Creator
 
         //TM's and HM's
         public List<string> hmAndTM = new List<string>();
+
+        public void CreateEmtpy()
+        {
+            Name = "";
+            PokedexID = "0";
+            Type1 = "";
+            Type2 = "";
+            Ability1 = "";
+            Ability2 = "";
+            HiddenAbility = "";
+            EggGroup1 = "";
+            EggGroup2 = "";
+            LevelingRate = "";
+            PokedexColor = "";
+            PokedexEntry = "";
+            Species = "";
+            BaseFriendship = "0";
+            EvolutionID = "";
+            EvolutionLevel = "";
+            EvolutionMethod = "";
+            LightColor = "";
+        }
 
         string ToUpperRemoveSpace(string Target)
         {
@@ -113,7 +136,10 @@ namespace Pokemon_Unity_Database_Creator
             string Result = "";
             foreach(string Move in Moves)
             {
-                Result = Result + "\"" + Move + "\"" + ", ";
+                if (Move != "")
+                {
+                    Result = Result + "\"" + Move + "\"" + ", ";
+                }
             }
 
             if (Result != "")
@@ -125,9 +151,9 @@ namespace Pokemon_Unity_Database_Creator
             return Result;
         }
 
-        public string Ability2Check(string Ability)
+        public string AbilityCheck(string Ability)
         {
-            string Result = "";
+            string Result = Ability;
             if(Ability == "None")
             {
                 Result = "null";
@@ -137,18 +163,18 @@ namespace Pokemon_Unity_Database_Creator
 
         public override string ToString()
         {
-            return string.Format($"new PokemonData({PokedexID}, \"Bulbasaur\", PokemonData.Type.{Type1.ToUpper()}, PokemonData.Type.{Type2.ToUpper()}, \"{Ability1}\", {Ability2Check(Ability2)}, \"{HiddenAbility}\",\n" +
+            return ($"new PokemonData({PokedexID}, \"{Name}\", PokemonData.Type.{Type1.ToUpper()}, PokemonData.Type.{Type2.ToUpper()}, \"{AbilityCheck(Ability1)}\", {AbilityCheck(Ability2)}, \"{AbilityCheck(HiddenAbility)}\",\n" +
                    $"{MaleRatio}f, {CatchRate}, PokemonData.EggGroup.{EggGroup1.ToUpper()}, PokemonData.EggGroup.{EggGroup2.ToUpper()}, {HatchTime}, {Height}f, {Weight}f,\n" +
-                   $"{EvExp}, PokemonData.LevelingRate.{ToUpperRemoveSpace(LevelingRate)}, {EvHP}, {EvAttack}, {EvDefense}, {EvSpecialAttack}, {EvSpecialDefense}, {EvSpeed}, PokemonData.PokedexColor.{ToUpperRemoveSpace(PokedexColor)}, {BaseFriendship},\n" +
+                   $"{EvExp.ToString()}, PokemonData.LevelingRate.{ToUpperRemoveSpace(LevelingRate)}, {EvHP.ToString()}, {EvAttack.ToString()}, {EvDefense.ToString()}, {EvSpecialAttack.ToString()}, {EvSpecialDefense.ToString()}, {EvSpeed.ToString()}, PokemonData.PokedexColor.{ToUpperRemoveSpace(PokedexColor)}, {BaseFriendship.ToString()},\n" +
                    $"\"{Species}\", \"{PokedexEntry}\",\n" +
-                   $"{BaseHP}, {BaseAttack}, {BaseDefense}, {BaseSpecialAttack}, {BaseSpecialDefense}, {BaseSpeed}, {Luminance}f, Color.{LightColor.ToLower()}," +
-                   "new int[] {{" + $"{MoveLevels(LevelMoves)}" + "}},\n" +
+                   $"{BaseHP.ToString()}, {BaseAttack.ToString()}, {BaseDefense.ToString()}, {BaseSpecialAttack.ToString()}, {BaseSpecialDefense.ToString()}, {BaseSpeed.ToString()}, {Luminance.ToString()}f, Color.{LightColor.ToLower()}," +
+                   "new int[] {" + $"{MoveLevels(LevelMoves)}" + "},\n" +
                    "new string[]\n" +
-                   "{{\n" +
+                   "{\n" +
                    $"{MoveNames(LevelMoves)}\n" +
-                   "}},\n" +
-                   "new string[] {{ " + HMandTM(hmAndTM) + " }},\n" +
-                   "new int[] {{" + EvolutionID + "}}, new string[] {{" + $"\"Level,{EvolutionLevel}\"" + "}}),\n");
+                   "},\n" +
+                   "new string[] { " + HMandTM(hmAndTM) + " },\n" +
+                   "new int[] {" + EvolutionID + "}, new string[] {" + $"\"Level,{EvolutionLevel}\"" + "}),\n");
         }
     }
 }
